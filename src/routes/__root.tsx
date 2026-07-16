@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Nordwell — Websites, Landing Pages & AI Automation" },
+      { name: "description", content: "A boutique digital studio crafting high-converting websites, landing pages and AI chatbots for ambitious teams." },
+      { name: "author", content: "Nordwell Studio" },
+      { property: "og:title", content: "Nordwell — Websites, Landing Pages & AI Automation" },
+      { property: "og:description", content: "Handcrafted websites, landing pages and AI automation that turn traffic into revenue." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@nordwell" },
     ],
     links: [
       {
@@ -92,6 +92,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@500,600&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
