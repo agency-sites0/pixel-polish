@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Bot, Calendar, MessageCircle, Users, Zap, Phone } from "lucide-react";
+import { Bot, Calendar, Database, User, BellRing, Filter } from "lucide-react";
 import { Reveal, SectionHeader } from "./Reveal";
 
 type Msg = { from: "bot" | "user"; text: string; delay: number };
@@ -13,13 +13,13 @@ const script: Msg[] = [
   { from: "bot", text: "Got it. Would you like to book a 20-min discovery call with our team?", delay: 1400 },
 ];
 
-const features = [
-  { icon: Users, t: "Lead qualification", d: "Score and route every inquiry to the right owner." },
-  { icon: Calendar, t: "Appointment booking", d: "Native Cal.com & Calendly, synced to your CRM." },
-  { icon: MessageCircle, t: "FAQ automation", d: "Trained on your docs, policies and product." },
-  { icon: Zap, t: "CRM integration", d: "HubSpot, Salesforce, Pipedrive and Airtable." },
-  { icon: Phone, t: "WhatsApp channel", d: "Same brain across web, WhatsApp and email." },
-  { icon: Bot, t: "24/7 support", d: "Instant replies with graceful human handoff." },
+const workflow = [
+  { icon: User, t: "Visitor arrives", d: "A prospect lands on your site, ad or WhatsApp." },
+  { icon: Bot, t: "AI assistant greets", d: "On-brand, trained on your business — never a generic bot." },
+  { icon: Filter, t: "Lead qualification", d: "Budget, timeline and fit understood in one short conversation." },
+  { icon: Calendar, t: "Appointment booked", d: "Straight into your calendar from live availability." },
+  { icon: Database, t: "CRM updated", d: "A warm lead — with a summary — appears in your pipeline." },
+  { icon: BellRing, t: "You're notified", d: "Slack, email or SMS so your team can close the loop fast." },
 ];
 
 export function ChatbotDemo() {
@@ -53,9 +53,9 @@ export function ChatbotDemo() {
     <section className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeader
-          eyebrow="AI Chatbots"
-          title="Meet the concierge that never clocks out."
-          description="A custom AI agent trained on your brand, wired into your stack, and designed to feel like your best salesperson."
+          eyebrow="AI Assistants"
+          title="A salesperson that never sleeps."
+          description="A real business workflow — not a chatbot widget. Watch a visitor become a booked meeting in under two minutes."
         />
 
         <div className="mt-16 grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:items-start">
@@ -127,18 +127,28 @@ export function ChatbotDemo() {
             </div>
           </Reveal>
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            {features.map((f, i) => (
-              <Reveal key={f.t} i={i}>
-                <div className="h-full rounded-2xl border border-border bg-card p-5 transition-colors hover:bg-accent/40">
-                  <div className="flex size-9 items-center justify-center rounded-lg border border-border bg-background">
-                    <f.icon className="size-4" />
-                  </div>
-                  <div className="mt-4 text-sm font-semibold">{f.t}</div>
-                  <div className="mt-1 text-[13px] text-muted-foreground">{f.d}</div>
-                </div>
-              </Reveal>
-            ))}
+          <div className="relative">
+            <div aria-hidden className="absolute left-[19px] top-4 bottom-4 w-px bg-gradient-to-b from-border via-border to-transparent" />
+            <ol className="grid gap-3">
+              {workflow.map((f, i) => (
+                <Reveal key={f.t} i={i}>
+                  <li className="relative flex items-start gap-4 rounded-2xl border border-border bg-card p-4 pl-5 transition-colors hover:bg-accent/40">
+                    <div className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-xl border border-border bg-background">
+                      <f.icon className="size-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-display text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+                          Step {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                      <div className="mt-0.5 text-sm font-semibold">{f.t}</div>
+                      <div className="mt-1 text-[13px] text-muted-foreground">{f.d}</div>
+                    </div>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
           </div>
         </div>
       </div>

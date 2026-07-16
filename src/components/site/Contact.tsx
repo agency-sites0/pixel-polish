@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { ArrowUpRight, Calendar, Mail, MapPin, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Calendar, Mail, MapPin, MessageCircle, Check } from "lucide-react";
 import { Reveal, SectionHeader } from "./Reveal";
 
 const schema = z.object({
@@ -44,10 +44,28 @@ export function Contact() {
           <div>
             <SectionHeader
               align="left"
-              eyebrow="Contact"
-              title="Let's build something worth remembering."
-              description="Tell us about your project. We reply within 24 hours with a scope, timeline and next steps."
+              eyebrow="Strategy call"
+              title="Let's turn your website into growth."
+              description="A 30-minute conversation where we listen, share what's working for businesses like yours, and outline the highest-leverage next move. No pitch."
             />
+
+            <Reveal>
+              <ul className="mt-8 grid gap-2.5 text-sm">
+                {[
+                  "Honest read on what's holding your funnel back",
+                  "Concrete opportunities ranked by business impact",
+                  "Realistic scope, timeline and investment",
+                  "Zero obligation — most calls end with a plan, not a proposal",
+                ].map((b) => (
+                  <li key={b} className="flex items-start gap-2.5">
+                    <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-foreground text-background">
+                      <Check className="size-2.5" />
+                    </span>
+                    <span className="text-foreground/80">{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
 
             <Reveal>
               <div className="mt-10 grid gap-3">
@@ -60,7 +78,7 @@ export function Contact() {
                       <Calendar className="size-4" />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold">Book a 20-min call</div>
+                      <div className="text-sm font-semibold">Book a 30-min strategy call</div>
                       <div className="text-xs text-muted-foreground">Calendly · same-week availability</div>
                     </div>
                   </div>
@@ -109,7 +127,10 @@ export function Contact() {
               onSubmit={onSubmit}
               className="relative overflow-hidden rounded-[28px] border border-border bg-card p-6 sm:p-8"
             >
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Or send us the brief
+              </div>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <Field label="Name" name="name" placeholder="Your name" />
                 <Field label="Email" name="email" type="email" placeholder="you@company.com" />
                 <Field label="Company" name="company" placeholder="Company (optional)" />
@@ -117,12 +138,12 @@ export function Contact() {
               </div>
               <div className="mt-4">
                 <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                  Project details
+                  What are you trying to grow?
                 </label>
                 <textarea
                   name="message"
                   rows={5}
-                  placeholder="Tell us about goals, timeline and anything worth knowing."
+                  placeholder="A few lines on your business, the number you're trying to move, and any timeline."
                   className="w-full resize-none rounded-2xl border border-border bg-background px-4 py-3 text-[14px] outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-foreground/50"
                 />
               </div>
@@ -131,11 +152,11 @@ export function Contact() {
                 disabled={loading}
                 className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-transform hover:-translate-y-0.5 disabled:opacity-70"
               >
-                {loading ? "Sending…" : "Send inquiry"}
+                {loading ? "Sending…" : "Request a strategy call"}
                 <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
               <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                By submitting you agree to our privacy policy.
+                We reply within one business day. Your details stay with us.
               </p>
             </form>
           </Reveal>
