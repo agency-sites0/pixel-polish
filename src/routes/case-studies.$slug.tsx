@@ -5,7 +5,7 @@ import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { Reveal } from "@/components/site/Reveal";
-import { caseStudies, getAdjacentCaseStudies, getCaseStudy } from "@/lib/case-studies";
+import { caseStudies, getAdjacentCaseStudies, getCaseStudy, type CaseStudy } from "@/lib/case-studies";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/case-studies/$slug")({
@@ -47,7 +47,7 @@ function NotFound() {
 }
 
 function CaseStudyPage() {
-  const { study } = Route.useLoaderData();
+  const { study } = Route.useLoaderData() as { study: CaseStudy };
   const { prev, next } = getAdjacentCaseStudies(study.slug);
   const related = caseStudies.filter((c) => c.slug !== study.slug).slice(0, 3);
 
