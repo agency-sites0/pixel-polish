@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "#services", label: "Services" },
-  { href: "#work", label: "Work" },
+  { href: "#work", label: "Case studies" },
   { href: "#process", label: "Process" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#industries", label: "Industries" },
+  { href: "#insights", label: "Insights" },
 ];
 
 export function Navbar() {
@@ -66,7 +66,7 @@ export function Navbar() {
             href="#contact"
             className="group hidden items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:opacity-90 md:inline-flex"
           >
-            Book a call
+            Book a strategy call
             <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <button
@@ -101,7 +101,7 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-foreground px-4 py-3 text-sm font-medium text-background"
             >
-              Book a call <ArrowUpRight className="size-4" />
+              Book a strategy call <ArrowUpRight className="size-4" />
             </a>
           </div>
         </motion.div>

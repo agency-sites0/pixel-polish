@@ -1,37 +1,41 @@
-import { Globe, Rocket, Bot, Workflow, ArrowUpRight, Check } from "lucide-react";
+import { Globe, Rocket, Bot, Workflow, ArrowUpRight } from "lucide-react";
 import { Reveal, SectionHeader } from "./Reveal";
 
 const services = [
   {
     icon: Globe,
     title: "Custom Websites",
-    description:
-      "Bespoke marketing sites engineered for speed, story, and conversion — never a template.",
-    features: ["Design system + CMS", "Motion & interaction", "Core Web Vitals ≥ 95"],
+    problem: "Your site looks the part but doesn't move the numbers.",
+    solution:
+      "A bespoke site built around one goal: turning the right visitors into revenue — clear story, considered design, engineering that lasts.",
+    outcome: "More qualified leads, higher average deal size, a brand your team is proud to send.",
     tag: "01",
   },
   {
     icon: Rocket,
     title: "High-Converting Landing Pages",
-    description:
-      "Sharp, single-purpose pages built from research — copy, layout and offer tuned to convert.",
-    features: ["Conversion audit", "A/B ready variants", "Analytics wiring"],
+    problem: "You're paying for traffic that bounces before it reads the offer.",
+    solution:
+      "A single, sharp page — researched, written and designed around one decision — with instrumentation to prove what works.",
+    outcome: "Lower cost per lead, higher sign-up rate, a compounding advantage on paid.",
     tag: "02",
   },
   {
     icon: Bot,
-    title: "AI Chatbots",
-    description:
-      "On-brand agents that qualify leads, book calls and answer questions across web & WhatsApp.",
-    features: ["Custom knowledge base", "Lead capture + CRM", "Human handoff"],
+    title: "AI Assistants",
+    problem: "Inquiries pile up after hours and your best leads go cold.",
+    solution:
+      "An on-brand AI assistant trained on your business, wired into your calendar and CRM, with graceful human handoff.",
+    outcome: "Meetings booked while you sleep, faster response times, more revenue captured.",
     tag: "03",
   },
   {
     icon: Workflow,
-    title: "Website + AI Automation",
-    description:
-      "Deep integrations that connect your site to n8n, Zapier and internal tools — end-to-end.",
-    features: ["Workflow design", "CRM & inbox sync", "Reporting dashboards"],
+    title: "AI Automation",
+    problem: "Your team is stuck in manual work that software should be doing.",
+    solution:
+      "Custom workflows that connect your site, inbox, CRM and internal tools — so leads, quotes and follow-ups happen automatically.",
+    outcome: "Fewer hours in operations, faster sales cycles, a business that scales without hiring.",
     tag: "04",
   },
 ];
@@ -42,8 +46,8 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeader
           eyebrow="Services"
-          title="Four disciplines. One studio."
-          description="Every engagement blends strategy, design and engineering — delivered by a small senior team, not a hand-off chain."
+          title="What we build. Why it matters."
+          description="Four services, one focus: measurable business outcomes. Every engagement is led by a senior team — no hand-offs, no juniors learning on your budget."
         />
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2">
@@ -64,20 +68,25 @@ export function Services() {
                 <h3 className="mt-8 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-[15px] text-muted-foreground">{s.description}</p>
-                <ul className="mt-6 grid gap-2">
-                  {s.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-foreground/80">
-                      <Check className="size-3.5 text-[var(--color-accent-blue)]" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
+                <dl className="mt-6 grid gap-4 text-sm">
+                  <div>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">Problem</dt>
+                    <dd className="mt-1.5 text-foreground/80">{s.problem}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">Solution</dt>
+                    <dd className="mt-1.5 text-foreground/80">{s.solution}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-accent-blue)]">Outcome</dt>
+                    <dd className="mt-1.5 font-medium text-foreground">{s.outcome}</dd>
+                  </div>
+                </dl>
                 <a
                   href="#contact"
                   className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-foreground"
                 >
-                  Discuss a project
+                  Discuss this for your business
                   <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
               </div>
