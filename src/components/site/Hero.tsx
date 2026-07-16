@@ -28,7 +28,7 @@ export function Hero() {
           className="mx-auto flex max-w-fit items-center gap-2 rounded-full border border-border/70 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur"
         >
           <Sparkles className="size-3.5 text-[var(--color-accent-blue)]" />
-          Now booking Q3 · 3 spots left
+          Accepting 3 new engagements this quarter
         </motion.div>
 
         <motion.h1
@@ -37,15 +37,9 @@ export function Hero() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
           className="mx-auto mt-6 max-w-4xl text-balance text-center text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-[88px]"
         >
-          Websites that{" "}
-          <span className="relative inline-block">
-            <span className="bg-gradient-to-br from-foreground via-foreground to-[var(--color-accent-blue)] bg-clip-text text-transparent">
-              convert
-            </span>
-          </span>
-          .
+          Growth, engineered.
           <br className="hidden sm:block" />
-          AI that <em className="font-serif italic text-muted-foreground">works while you sleep.</em>
+          <em className="font-serif italic text-muted-foreground">Not just designed.</em>
         </motion.h1>
 
         <motion.p
@@ -54,8 +48,8 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto mt-7 max-w-xl text-balance text-center text-base text-muted-foreground sm:text-lg"
         >
-          Nordwell is a boutique studio designing custom websites, landing pages, and AI
-          automation for teams who refuse to look like everyone else.
+          We help ambitious businesses turn websites, landing pages and AI assistants into
+          predictable pipelines of qualified customers.
         </motion.p>
 
         <motion.div
@@ -68,14 +62,14 @@ export function Hero() {
             href="#contact"
             className="group relative inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-transform duration-300 hover:-translate-y-0.5"
           >
-            Start a project
+            Book a strategy call
             <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <a
             href="#work"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-5 py-3 text-sm font-medium backdrop-blur transition-colors hover:bg-accent"
           >
-            See our work
+            View case studies
           </a>
         </motion.div>
 
@@ -92,7 +86,7 @@ export function Hero() {
                 <Star key={i} className="size-3.5 fill-[var(--color-accent-blue)] text-[var(--color-accent-blue)]" />
               ))}
             </div>
-            <span>4.9/5 across 60+ engagements</span>
+            <span>4.9/5 average client rating · 60+ businesses served</span>
           </div>
           <div className="relative w-full overflow-hidden">
             <div
@@ -133,16 +127,16 @@ export function Hero() {
             <div className="grid gap-0 md:grid-cols-[1.2fr_1fr]">
               <div className="p-8 sm:p-10">
                 <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  Case study · Halcyon
+                  Case study · Halcyon · Fintech
                 </div>
                 <div className="mt-3 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                  +214% qualified leads in 90 days.
+                  From flat funnel to 3× qualified pipeline in 90 days.
                 </div>
                 <div className="mt-6 grid grid-cols-3 gap-4 text-sm">
                   {[
-                    { k: "+214%", v: "MQLs" },
-                    { k: "1.9s", v: "LCP" },
-                    { k: "98", v: "Lighthouse" },
+                    { k: "+214%", v: "Qualified leads" },
+                    { k: "-38%", v: "Cost per demo" },
+                    { k: "6 wks", v: "To launch" },
                   ].map((s) => (
                     <div key={s.v}>
                       <div className="font-display text-xl font-semibold">{s.k}</div>
