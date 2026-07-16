@@ -1,13 +1,48 @@
 import { Reveal, SectionHeader } from "./Reveal";
 
 const steps = [
-  { n: "01", t: "Discovery", d: "Kickoff, stakeholder interviews and audit of what's working today." },
-  { n: "02", t: "Strategy", d: "Positioning, information architecture and measurable success criteria." },
-  { n: "03", t: "Design", d: "Bespoke visual language and prototypes reviewed weekly." },
-  { n: "04", t: "Development", d: "Production-grade build with a design system, CMS and analytics." },
-  { n: "05", t: "Testing", d: "QA, accessibility passes and performance tuning to Lighthouse 95+." },
-  { n: "06", t: "Launch", d: "Zero-downtime release, monitoring and a launch playbook." },
-  { n: "07", t: "Support", d: "Care plan with monthly improvements, experiments and reporting." },
+  {
+    n: "01",
+    t: "Discovery",
+    d: "We listen before we design. Interviews with your team, customers and data reveal where the real growth is hiding.",
+    why: "So every decision after this is backed by evidence, not opinion.",
+  },
+  {
+    n: "02",
+    t: "Business Strategy",
+    d: "Positioning, messaging and a measurable goal for each page. We agree on the numbers we're moving before a pixel is drawn.",
+    why: "So the project has a business case, not just a launch date.",
+  },
+  {
+    n: "03",
+    t: "Experience Design",
+    d: "Wireframes, then a distinctive visual language shaped around the customer journey — reviewed together weekly.",
+    why: "So visitors instantly understand what you do and why it matters.",
+  },
+  {
+    n: "04",
+    t: "Development",
+    d: "Production-grade build with a design system, CMS and analytics wired in from day one.",
+    why: "So your team can move fast after launch without waiting on us.",
+  },
+  {
+    n: "05",
+    t: "Optimization",
+    d: "Performance, SEO and accessibility tuned to industry-leading benchmarks. AI assistants trained on your real content.",
+    why: "So the site earns trust with humans, search engines and buyers.",
+  },
+  {
+    n: "06",
+    t: "Launch",
+    d: "Zero-downtime release, redirects, monitoring and a launch playbook for your team and stakeholders.",
+    why: "So going live feels like a milestone, not a fire drill.",
+  },
+  {
+    n: "07",
+    t: "Growth",
+    d: "Ongoing experiments, content and automation improvements against the metrics we agreed at the start.",
+    why: "So the site compounds in value long after the project ends.",
+  },
 ];
 
 export function Process() {
@@ -16,8 +51,8 @@ export function Process() {
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeader
           eyebrow="Process"
-          title="Seven steps. No surprises."
-          description="A predictable rhythm that gives you clarity every week — from first call to long after launch."
+          title="A business journey. Not a hand-off."
+          description="Seven steps that connect strategy to revenue — each one designed to answer the question your board will ask."
         />
         <div className="mt-16 relative">
           <div aria-hidden className="absolute left-6 top-2 bottom-2 w-px bg-gradient-to-b from-border via-border to-transparent sm:left-1/2" />
@@ -39,6 +74,9 @@ export function Process() {
                     </div>
                     <h3 className="mt-1 font-display text-2xl font-semibold tracking-tight">{s.t}</h3>
                     <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                    <p className="mt-3 border-t border-border pt-3 text-xs italic text-foreground/70">
+                      {s.why}
+                    </p>
                   </div>
                   <span
                     aria-hidden
