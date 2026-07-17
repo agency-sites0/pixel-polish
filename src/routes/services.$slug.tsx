@@ -71,7 +71,7 @@ function NotFoundBlock() {
 }
 
 function ServicePage() {
-  const { service } = Route.useLoaderData();
+  const { service } = Route.useLoaderData() as { service: Service };
   const Icon = icons[service.slug as Slug];
   const otherServices = services.filter((s) => s.slug !== service.slug);
   const relatedCases = caseStudies.filter((c) => service.caseSlugs.includes(c.slug));
