@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
@@ -54,6 +55,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => InsightsRoute,
+} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -69,21 +75,22 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/insights/': typeof InsightsIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/insights': typeof InsightsIndexRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -91,11 +98,12 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/work': typeof WorkRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/insights/': typeof InsightsIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,16 +117,17 @@ export interface FileRouteTypes {
     | '/work'
     | '/case-studies/$slug'
     | '/services/$slug'
+    | '/insights/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
-    | '/insights'
     | '/work'
     | '/case-studies/$slug'
     | '/services/$slug'
+    | '/insights'
     | '/services'
   id:
     | '__root__'
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/work'
     | '/case-studies/$slug'
     | '/services/$slug'
+    | '/insights/'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -137,7 +147,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  InsightsRoute: typeof InsightsRoute
+  InsightsRoute: typeof InsightsRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
   WorkRoute: typeof WorkRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
@@ -194,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/insights/': {
+      id: '/insights/'
+      path: '/'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof InsightsRoute
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/$slug'
@@ -210,6 +227,18 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface InsightsRouteChildren {
+  InsightsIndexRoute: typeof InsightsIndexRoute
+}
+
+const InsightsRouteChildren: InsightsRouteChildren = {
+  InsightsIndexRoute: InsightsIndexRoute,
+}
+
+const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
+  InsightsRouteChildren,
+)
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -229,7 +258,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  InsightsRoute: InsightsRoute,
+  InsightsRoute: InsightsRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
   WorkRoute: WorkRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
