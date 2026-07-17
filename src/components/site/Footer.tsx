@@ -1,19 +1,22 @@
-import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Twitter, ArrowUpRight, MapPin } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { caseStudies } from "@/lib/case-studies";
 
 export function Footer() {
+  const featured = caseStudies.slice(0, 4);
   return (
-    <footer className="relative border-t border-border pt-16 pb-10">
+    <footer className="relative border-t border-border pt-20 pb-10">
       <div className="mx-auto max-w-6xl px-5">
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <span className="grid size-7 place-items-center rounded-lg bg-foreground text-background text-[13px] font-bold">
                 N
               </span>
               <span className="font-display text-[15px] font-semibold tracking-tight">Nordwell</span>
-            </div>
+            </Link>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-              A boutique studio for websites, landing pages and AI automation.
+              A boutique studio for websites, landing pages and AI automation. We help ambitious businesses turn traffic into revenue.
             </p>
             <form
               onSubmit={(e) => e.preventDefault()}
@@ -28,39 +31,46 @@ export function Footer() {
                 Subscribe <ArrowUpRight className="size-3" />
               </button>
             </form>
+            <div className="mt-6 flex items-center gap-2 text-xs text-muted-foreground">
+              <MapPin className="size-3.5" /> Lisbon · Amsterdam · Remote worldwide
+            </div>
           </div>
+          <FooterCol
+            title="Services"
+            links={[
+              ["Websites", "/services/websites"],
+              ["Landing pages", "/services/landing-pages"],
+              ["AI chatbots", "/services/ai-chatbots"],
+              ["Automation", "/services/automation"],
+            ]}
+          />
           <FooterCol
             title="Studio"
             links={[
-              ["Services", "#services"],
-              ["Work", "#work"],
-              ["Process", "#process"],
-              ["Pricing", "#pricing"],
+              ["Work", "/work"],
+              ["About", "/about"],
+              ["Insights", "/insights"],
+              ["Contact", "/contact"],
             ]}
           />
           <FooterCol
-            title="Company"
-            links={[
-              ["About", "#"],
-              ["Journal", "#"],
-              ["Careers", "#"],
-              ["Contact", "#contact"],
-            ]}
+            title="Case studies"
+            links={featured.map((c) => [c.name, `/case-studies/${c.slug}`] as [string, string])}
           />
           <FooterCol
-            title="Legal"
+            title="Resources"
             links={[
-              ["Privacy", "#"],
-              ["Terms", "#"],
-              ["Cookies", "#"],
-              ["Security", "#"],
+              ["Free audit", "/free-audit"],
+              ["Pricing", "/services"],
+              ["FAQ", "/#faq"],
+              ["Journal", "/insights"],
             ]}
           />
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 sm:flex-row sm:items-center">
           <div className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Nordwell Studio. Handcrafted in Lisbon.
+            © {new Date().getFullYear()} Nordwell Studio · Handcrafted in Lisbon · <a href="#" className="hover:text-foreground">Privacy</a> · <a href="#" className="hover:text-foreground">Terms</a>
           </div>
           <div className="flex items-center gap-2">
             {[
@@ -80,7 +90,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Big wordmark */}
         <div
           aria-hidden
           className="mt-16 select-none overflow-hidden text-center font-display text-[22vw] font-semibold leading-none tracking-tighter text-foreground/[0.04]"
@@ -101,12 +110,21 @@ function FooterCol({ title, links }: { title: string; links: [string, string][] 
       <ul className="mt-4 space-y-2.5">
         {links.map(([label, href]) => (
           <li key={label}>
-            <a
-              href={href}
-              className="text-sm text-foreground/80 transition-colors hover:text-foreground"
-            >
-              {label}
-            </a>
+            {href.startsWith("/") && !href.includes("#") ? (
+              <Link
+                to={href}
+                className="text-sm text-foreground/80 transition-colors hover:text-foreground"
+              >
+                {label}
+              </Link>
+            ) : (
+              <a
+                href={href}
+                className="text-sm text-foreground/80 transition-colors hover:text-foreground"
+              >
+                {label}
+              </a>
+            )}
           </li>
         ))}
       </ul>
