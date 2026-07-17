@@ -6,7 +6,7 @@ import { Framework } from "@/components/site/Framework";
 import { AfterLaunch } from "@/components/site/AfterLaunch";
 import { ChatbotDemo } from "@/components/site/ChatbotDemo";
 import { CTA } from "@/components/site/CTA";
-import { getService, services } from "@/lib/services";
+import { getService, services, type Service } from "@/lib/services";
 import { caseStudies } from "@/lib/case-studies";
 
 const icons = {
@@ -19,7 +19,7 @@ const icons = {
 type Slug = keyof typeof icons;
 
 export const Route = createFileRoute("/services/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { service: Service } => {
     const service = getService(params.slug);
     if (!service) throw notFound();
     return { service };
