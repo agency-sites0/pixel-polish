@@ -2,27 +2,23 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
+import { TrustedBy } from "@/components/site/TrustedBy";
+import { Results } from "@/components/site/Results";
 import { Services } from "@/components/site/Services";
-import { WhyUs } from "@/components/site/WhyUs";
 import { Philosophy } from "@/components/site/Philosophy";
+import { WhyUs } from "@/components/site/WhyUs";
 import { Framework } from "@/components/site/Framework";
-import { AfterLaunch } from "@/components/site/AfterLaunch";
 import { Projects } from "@/components/site/Projects";
 import { ChatbotDemo } from "@/components/site/ChatbotDemo";
-import { Pricing } from "@/components/site/Pricing";
+import { Industries } from "@/components/site/Industries";
+import { AfterLaunch } from "@/components/site/AfterLaunch";
 import { Testimonials } from "@/components/site/Testimonials";
-import { Tech } from "@/components/site/Tech";
-import { FAQ } from "@/components/site/FAQ";
-import { Contact } from "@/components/site/Contact";
+import { Insights } from "@/components/site/Insights";
+import { FreeAuditCTA } from "@/components/site/FreeAuditCTA";
+import { CTA } from "@/components/site/CTA";
 import { Footer } from "@/components/site/Footer";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { FloatingCTA } from "@/components/site/FloatingCTA";
-import { Results } from "@/components/site/Results";
-import { Industries } from "@/components/site/Industries";
-import { Comparison } from "@/components/site/Comparison";
-import { Insights } from "@/components/site/Insights";
-import { About } from "@/components/site/About";
-import { CTA } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -60,23 +56,19 @@ function Index() {
       <Navbar />
       <main>
         <Hero />
+        <TrustedBy />
         <Results />
         <Services />
         <Philosophy />
-        <Industries />
         <WhyUs />
         <Framework />
         <Projects />
         <ChatbotDemo />
-        <Comparison />
-        <About />
+        <Industries />
         <AfterLaunch />
-        <Pricing />
         <Testimonials />
-        <Tech />
         <Insights />
-        <FAQ />
-        <Contact />
+        <FreeAuditCTA />
         <CTA />
       </main>
       <Footer />
