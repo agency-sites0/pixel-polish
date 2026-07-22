@@ -12,6 +12,7 @@ const CONTACT_SCHEMA = z.object({
   timeline: z.string().trim().max(60).optional().or(z.literal("")),
   services: z.array(z.string()).min(1, "Pick at least one service").max(12),
   goal: z.string().trim().min(10, "Tell us what you want to move").max(1000),
+  turnstileToken: z.string().trim().min(1, "Please complete the verification step"),
   honeypot: z.string().trim().max(200).optional().or(z.literal("")),
 });
 
@@ -22,12 +23,30 @@ const AUDIT_SCHEMA = z.object({
   goals: z.string().trim().min(10, "Tell us what a win looks like").max(600),
   challenges: z.string().trim().max(600).optional().or(z.literal("")),
   email: z.string().trim().email("Enter a valid email").max(255),
+  turnstileToken: z.string().trim().min(1, "Please complete the verification step"),
   honeypot: z.string().trim().max(200).optional().or(z.literal("")),
 });
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const MAX_SUBMISSIONS_PER_WINDOW = 5;
 const rateLimitTimestamps = new Map<string, number[]>();
+
+type LeadSource = "contact" | "audit";
+
+type LeadRecord = {
+  source: LeadSource;
+  name?: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  website?: string;
+  industry?: string;
+  budget?: string;
+  timeline?: string;
+  services?: string[];
+  goal?: string;
+  status: "new";
+};
 
 function pruneRateLimit(key: string) {
   const now = Date.now();
@@ -57,6 +76,28 @@ function assertRateLimit(key: string) {
 
   timestamps.push(Date.now());
   rateLimitTimestamps.set(normalized, timestamps);
+}
+
+async function verifyTurnstile(token: string) {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+
+  if (!secret) {
+    throw new Error(
+      "Missing Cloudflare Turnstile production secret. Set TURNSTILE_SECRET_KEY before enabling form spam protection.",
+    );
+  }
+
+  const body = new URLSearchParams({ secret, response: token });
+  const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body,
+  });
+
+  const result = (await response.json()) as { success?: boolean };
+  if (!result.success) {
+    throw new Error("Please complete the verification step.");
+  }
 }
 
 async function notifyAdmin(source: "contact" | "audit", data: Record<string, string | string[]>) {
@@ -105,6 +146,51 @@ async function notifyAdmin(source: "contact" | "audit", data: Record<string, str
   }
 }
 
+async function persistLead(source: LeadSource, data: Record<string, string | string[]>) {
+  const supabaseUrl = process.env.SUPABASE_URL ?? process.env.VITE_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl || !serviceRoleKey) {
+    throw new Error(
+      "Missing Supabase production credentials. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY before enabling database persistence.",
+    );
+  }
+
+  const normalizedBaseUrl = supabaseUrl.replace(/\/rest\/v1\/??$/, "").replace(/\/$/, "");
+  const endpoint = `${normalizedBaseUrl}/rest/v1/leads`;
+
+  const payload: LeadRecord = {
+    source,
+    name: typeof data.name === "string" ? data.name : undefined,
+    email: typeof data.email === "string" ? data.email : "",
+    phone: typeof data.phone === "string" ? data.phone : undefined,
+    company: typeof data.company === "string" ? data.company : undefined,
+    website: typeof data.website === "string" ? data.website : undefined,
+    industry: typeof data.industry === "string" ? data.industry : undefined,
+    budget: typeof data.budget === "string" ? data.budget : undefined,
+    timeline: typeof data.timeline === "string" ? data.timeline : undefined,
+    services: Array.isArray(data.services) ? data.services : undefined,
+    goal: typeof data.goal === "string" ? data.goal : undefined,
+    status: "new",
+  };
+
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${serviceRoleKey}`,
+      apikey: serviceRoleKey,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    const message = await response.text();
+    throw new Error(`Lead persistence failed: ${message}`);
+  }
+}
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -121,7 +207,21 @@ export const submitLeadInquiry = createServerFn({ method: "POST" })
       throw new Error("Submission rejected.");
     }
 
+    await verifyTurnstile(data.turnstileToken);
     assertRateLimit(data.email);
+
+    await persistLead("contact", {
+      name: data.name,
+      email: data.email,
+      phone: data.phone ?? "",
+      website: data.website ?? "",
+      company: data.company ?? "",
+      budget: data.budget ?? "",
+      timeline: data.timeline ?? "",
+      industry: data.industry ?? "",
+      services: data.services,
+      goal: data.goal,
+    });
 
     await notifyAdmin("contact", {
       name: data.name,
@@ -145,7 +245,17 @@ export const submitAuditRequest = createServerFn({ method: "POST" })
       throw new Error("Submission rejected.");
     }
 
+    await verifyTurnstile(data.turnstileToken);
     assertRateLimit(data.email);
+
+    await persistLead("audit", {
+      name: data.business,
+      email: data.email,
+      website: data.website,
+      company: data.business,
+      industry: data.industry ?? "",
+      goal: data.goals,
+    });
 
     await notifyAdmin("audit", {
       name: data.business,

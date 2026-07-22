@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -45,6 +45,7 @@ const schema = z.object({
   timeline: z.string().trim().max(60).optional(),
   services: z.array(z.string()).min(1, "Pick at least one service"),
   goal: z.string().trim().min(10, "Tell us what you want to move").max(1000),
+  turnstileToken: z.string().trim().min(1, "Please complete the verification step"),
   honeypot: z.string().trim().max(200).optional().or(z.literal("")),
 });
 
@@ -64,7 +65,63 @@ function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const widgetRef = useRef<HTMLDivElement | null>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY ?? "";
   const submitLeadInquiryFn = useServerFn(submitLeadInquiry);
+
+  useEffect(() => {
+    if (!turnstileSiteKey || !widgetRef.current) {
+      return;
+    }
+
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[data-turnstile-script="true"]',
+    );
+
+    const renderWidget = () => {
+      const turnstile = (
+        window as Window & {
+          turnstile?: {
+            render: (container: HTMLDivElement, options: Record<string, unknown>) => string;
+            remove: (id: string) => void;
+          };
+        }
+      ).turnstile;
+      if (!turnstile || !widgetRef.current) {
+        return;
+      }
+
+      if (widgetIdRef.current) {
+        turnstile.remove(widgetIdRef.current);
+      }
+
+      widgetIdRef.current = turnstile.render(widgetRef.current, {
+        sitekey: turnstileSiteKey,
+        theme: "light",
+        callback: (token: string) => setTurnstileToken(token),
+        "expired-callback": () => setTurnstileToken(""),
+      });
+    };
+
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+      script.async = true;
+      script.defer = true;
+      script.dataset.turnstileScript = "true";
+      script.addEventListener("load", renderWidget);
+      document.head.appendChild(script);
+      return () => {
+        script.removeEventListener("load", renderWidget);
+      };
+    }
+
+    if ((window as Window & { turnstile?: unknown }).turnstile) {
+      renderWidget();
+    }
+  }, [turnstileSiteKey]);
 
   function toggle(s: string) {
     setSelected((cur) => (cur.includes(s) ? cur.filter((x) => x !== s) : [...cur, s]));
@@ -84,6 +141,7 @@ function ContactPage() {
       timeline: form.get("timeline") || undefined,
       services: selected,
       goal: form.get("goal"),
+      turnstileToken,
       honeypot: form.get("honeypot") || undefined,
     });
     if (!parsed.success) {
@@ -105,10 +163,12 @@ function ContactPage() {
           timeline: parsed.data.timeline ?? "",
           services: parsed.data.services,
           goal: parsed.data.goal,
+          turnstileToken: parsed.data.turnstileToken,
           honeypot: parsed.data.honeypot ?? "",
         },
       });
       setSubmitted(true);
+      setTurnstileToken("");
       toast.success("Thanks — we'll be in touch within one business day.");
       (e.target as HTMLFormElement).reset();
       setSelected([]);
@@ -249,6 +309,10 @@ function ContactPage() {
                           </button>
                         ))}
                       </div>
+                    </div>
+
+                    <div className="mt-6 flex justify-start">
+                      <div ref={widgetRef} className="min-h-[65px]" />
                     </div>
 
                     <div className="mt-6 grid gap-4 sm:grid-cols-2">
