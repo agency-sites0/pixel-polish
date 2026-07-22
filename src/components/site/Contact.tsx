@@ -79,7 +79,9 @@ export function Contact() {
                     </div>
                     <div>
                       <div className="text-sm font-semibold">Book a 30-min strategy call</div>
-                      <div className="text-xs text-muted-foreground">Calendly · same-week availability</div>
+                      <div className="text-xs text-muted-foreground">
+                        Calendly · same-week availability
+                      </div>
                     </div>
                   </div>
                   <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

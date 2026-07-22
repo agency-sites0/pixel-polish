@@ -19,18 +19,27 @@ import { CTA } from "@/components/site/CTA";
 import { Footer } from "@/components/site/Footer";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { FloatingCTA } from "@/components/site/FloatingCTA";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Nordwell — Websites, Landing Pages & AI Automation for growing businesses" },
-      { name: "description", content: "A boutique studio helping ambitious businesses turn traffic into revenue with conversion websites, high-performing landing pages and on-brand AI automation." },
+      {
+        name: "description",
+        content:
+          "A boutique studio helping ambitious businesses turn traffic into revenue with conversion websites, high-performing landing pages and on-brand AI automation.",
+      },
       { property: "og:title", content: "Nordwell — Websites, Landing Pages & AI Automation" },
-      { property: "og:description", content: "Boutique studio for websites, landing pages and AI automation that turn traffic into revenue." },
+      {
+        property: "og:description",
+        content:
+          "Boutique studio for websites, landing pages and AI automation that turn traffic into revenue.",
+      },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://elevated-experience-co.lovable.app/" },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
-    links: [{ rel: "canonical", href: "https://elevated-experience-co.lovable.app/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Index,
 });

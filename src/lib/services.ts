@@ -35,16 +35,37 @@ export const services: Service[] = [
       "Technical SEO, schema and Core Web Vitals",
     ],
     benefits: [
-      { title: "More qualified leads", body: "Sales gets warmer conversations, not more forms to sort." },
+      {
+        title: "More qualified leads",
+        body: "Sales gets warmer conversations, not more forms to sort.",
+      },
       { title: "Compounding SEO", body: "Every page is engineered to rank and keep ranking." },
-      { title: "A brand you're proud of", body: "A site your team is happy to send to any prospect, investor or hire." },
-      { title: "Ownership, not lock-in", body: "You own the code, the content and the analytics — forever." },
+      {
+        title: "A brand you're proud of",
+        body: "A site your team is happy to send to any prospect, investor or hire.",
+      },
+      {
+        title: "Ownership, not lock-in",
+        body: "You own the code, the content and the analytics — forever.",
+      },
     ],
     faq: [
-      { q: "How long does a website engagement take?", a: "Most sites launch in 4–8 weeks depending on scope. We work in weekly milestones with a demo every Friday." },
-      { q: "Do you build on WordPress?", a: "By default we ship on modern stacks — Next.js, TanStack Start or Framer — with a headless CMS. WordPress on request." },
-      { q: "What happens after launch?", a: "You can keep us on a care plan for ongoing design, development, CRO and SEO — or take it fully in-house." },
-      { q: "Can you migrate from our current site?", a: "Yes. We map every URL, preserve SEO equity and land the migration without a traffic dip." },
+      {
+        q: "How long does a website engagement take?",
+        a: "Most sites launch in 4–8 weeks depending on scope. We work in weekly milestones with a demo every Friday.",
+      },
+      {
+        q: "Do you build on WordPress?",
+        a: "By default we ship on modern stacks — Next.js, TanStack Start or Framer — with a headless CMS. WordPress on request.",
+      },
+      {
+        q: "What happens after launch?",
+        a: "You can keep us on a care plan for ongoing design, development, CRO and SEO — or take it fully in-house.",
+      },
+      {
+        q: "Can you migrate from our current site?",
+        a: "Yes. We map every URL, preserve SEO equity and land the migration without a traffic dip.",
+      },
     ],
     pricingFrom: "$18k",
     timeline: "4–8 weeks",
@@ -71,16 +92,40 @@ export const services: Service[] = [
       "First round of optimisation post-launch",
     ],
     benefits: [
-      { title: "Lower cost per lead", body: "Better conversion drops CAC across every paid channel." },
-      { title: "A compounding advantage", body: "Every experiment feeds the next — your funnel gets sharper every month." },
-      { title: "Sales-ready leads", body: "Qualifying questions right in the form, not after five follow-ups." },
-      { title: "Speed & clarity", body: "One page ships in weeks, not months — and can carry your entire paid budget." },
+      {
+        title: "Lower cost per lead",
+        body: "Better conversion drops CAC across every paid channel.",
+      },
+      {
+        title: "A compounding advantage",
+        body: "Every experiment feeds the next — your funnel gets sharper every month.",
+      },
+      {
+        title: "Sales-ready leads",
+        body: "Qualifying questions right in the form, not after five follow-ups.",
+      },
+      {
+        title: "Speed & clarity",
+        body: "One page ships in weeks, not months — and can carry your entire paid budget.",
+      },
     ],
     faq: [
-      { q: "Do you handle paid ads too?", a: "We work with your existing paid team or introduce a trusted partner. Our focus is the page and the funnel." },
-      { q: "How fast can we launch?", a: "Most pages launch in 2–4 weeks including research and testing." },
-      { q: "Can you build multiple variants?", a: "Yes — we usually ship 2–3 variants for split testing at launch." },
-      { q: "What tools do you use for CRO?", a: "PostHog, GA4, Hotjar or your existing stack. We meet you where you are." },
+      {
+        q: "Do you handle paid ads too?",
+        a: "We work with your existing paid team or introduce a trusted partner. Our focus is the page and the funnel.",
+      },
+      {
+        q: "How fast can we launch?",
+        a: "Most pages launch in 2–4 weeks including research and testing.",
+      },
+      {
+        q: "Can you build multiple variants?",
+        a: "Yes — we usually ship 2–3 variants for split testing at launch.",
+      },
+      {
+        q: "What tools do you use for CRO?",
+        a: "PostHog, GA4, Hotjar or your existing stack. We meet you where you are.",
+      },
     ],
     pricingFrom: "$6k",
     timeline: "2–4 weeks",
@@ -107,16 +152,40 @@ export const services: Service[] = [
       "Analytics dashboard & monthly tuning",
     ],
     benefits: [
-      { title: "Meetings while you sleep", body: "Qualified viewings and calls booked at 2am, straight into agent calendars." },
-      { title: "Faster reply times", body: "Every inquiry answered in under 60 seconds — 24/7, on every channel." },
-      { title: "On-brand, always", body: "Voice, tone and limits designed as carefully as your visual identity." },
-      { title: "Human when it matters", body: "A graceful handoff moment when the AI knows to step aside." },
+      {
+        title: "Meetings while you sleep",
+        body: "Qualified viewings and calls booked at 2am, straight into agent calendars.",
+      },
+      {
+        title: "Faster reply times",
+        body: "Every inquiry answered in under 60 seconds — 24/7, on every channel.",
+      },
+      {
+        title: "On-brand, always",
+        body: "Voice, tone and limits designed as carefully as your visual identity.",
+      },
+      {
+        title: "Human when it matters",
+        body: "A graceful handoff moment when the AI knows to step aside.",
+      },
     ],
     faq: [
-      { q: "Which model do you use?", a: "Usually OpenAI or Anthropic depending on task, orchestrated with our own guardrails. We benchmark for your use case." },
-      { q: "Where does the knowledge come from?", a: "Your site, docs, product pages and any internal PDFs — indexed into a vector store you own." },
-      { q: "Can it book meetings?", a: "Yes. It connects to Google / Outlook / Calendly and books directly, respecting availability rules." },
-      { q: "What about hallucinations?", a: "We constrain answers to your knowledge base, add refusal patterns and log every conversation for review." },
+      {
+        q: "Which model do you use?",
+        a: "Usually OpenAI or Anthropic depending on task, orchestrated with our own guardrails. We benchmark for your use case.",
+      },
+      {
+        q: "Where does the knowledge come from?",
+        a: "Your site, docs, product pages and any internal PDFs — indexed into a vector store you own.",
+      },
+      {
+        q: "Can it book meetings?",
+        a: "Yes. It connects to Google / Outlook / Calendly and books directly, respecting availability rules.",
+      },
+      {
+        q: "What about hallucinations?",
+        a: "We constrain answers to your knowledge base, add refusal patterns and log every conversation for review.",
+      },
     ],
     pricingFrom: "$9k",
     timeline: "3–5 weeks",
@@ -143,16 +212,40 @@ export const services: Service[] = [
       "Documentation & handover",
     ],
     benefits: [
-      { title: "Reclaim ops hours", body: "Give the team back the hours they lose to copy-paste, every single week." },
-      { title: "Faster sales cycles", body: "Instant enrichment, routing and follow-up — deals move without anyone chasing." },
-      { title: "Scale without hiring", body: "Grow the business without proportionally growing headcount." },
-      { title: "Data you can trust", body: "One source of truth, updated in real time, ready for reporting." },
+      {
+        title: "Reclaim ops hours",
+        body: "Give the team back the hours they lose to copy-paste, every single week.",
+      },
+      {
+        title: "Faster sales cycles",
+        body: "Instant enrichment, routing and follow-up — deals move without anyone chasing.",
+      },
+      {
+        title: "Scale without hiring",
+        body: "Grow the business without proportionally growing headcount.",
+      },
+      {
+        title: "Data you can trust",
+        body: "One source of truth, updated in real time, ready for reporting.",
+      },
     ],
     faq: [
-      { q: "Do we need to change tools?", a: "Usually no — we automate around your existing stack. If a tool is holding you back, we'll say so." },
-      { q: "Who owns the automations?", a: "You do. Everything is documented and handed over so your team can maintain it." },
-      { q: "What about security?", a: "Least-privilege API keys, logging, and no data stored outside your systems by default." },
-      { q: "Do you maintain them long-term?", a: "Optional care plan available — otherwise you own the stack fully." },
+      {
+        q: "Do we need to change tools?",
+        a: "Usually no — we automate around your existing stack. If a tool is holding you back, we'll say so.",
+      },
+      {
+        q: "Who owns the automations?",
+        a: "You do. Everything is documented and handed over so your team can maintain it.",
+      },
+      {
+        q: "What about security?",
+        a: "Least-privilege API keys, logging, and no data stored outside your systems by default.",
+      },
+      {
+        q: "Do you maintain them long-term?",
+        a: "Optional care plan available — otherwise you own the stack fully.",
+      },
     ],
     pricingFrom: "$5k",
     timeline: "2–4 weeks",

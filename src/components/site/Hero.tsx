@@ -83,7 +83,10 @@ export function Hero() {
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <div className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="size-3.5 fill-[var(--color-accent-blue)] text-[var(--color-accent-blue)]" />
+                <Star
+                  key={i}
+                  className="size-3.5 fill-[var(--color-accent-blue)] text-[var(--color-accent-blue)]"
+                />
               ))}
             </div>
             <span>4.9/5 average client rating · 60+ businesses served</span>

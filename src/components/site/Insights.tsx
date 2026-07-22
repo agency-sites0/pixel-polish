@@ -7,7 +7,8 @@ const posts = [
     read: "6 min",
     date: "Jun 2026",
     title: "The 12-second landing page.",
-    excerpt: "Why most paid pages lose the visitor before the fold — and the questions to answer instead.",
+    excerpt:
+      "Why most paid pages lose the visitor before the fold — and the questions to answer instead.",
     tone: "from-[oklch(0.94_0.03_260)] to-[oklch(0.86_0.06_240)]",
   },
   {
@@ -23,7 +24,8 @@ const posts = [
     read: "5 min",
     date: "Apr 2026",
     title: "The quiet math of premium sites.",
-    excerpt: "Why boutique websites keep compounding in value years after the last CMS agency has moved on.",
+    excerpt:
+      "Why boutique websites keep compounding in value years after the last CMS agency has moved on.",
     tone: "from-[oklch(0.93_0.04_200)] to-[oklch(0.82_0.08_215)]",
   },
 ];
@@ -63,7 +65,9 @@ export function Insights() {
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
                     <span>{p.date}</span>
-                    <span className="inline-flex items-center gap-1"><Clock className="size-3" /> {p.read}</span>
+                    <span className="inline-flex items-center gap-1">
+                      <Clock className="size-3" /> {p.read}
+                    </span>
                   </div>
                   <h3 className="mt-3 font-display text-xl font-semibold leading-snug tracking-tight">
                     {p.title}

@@ -205,12 +205,17 @@ export const caseStudies: CaseStudy[] = [
       "Rebuild the PDP as a story, not a spec sheet",
       "Keep Core Web Vitals in the green",
     ],
-    research: "Customer interviews and post-purchase surveys informed the story we told on each PDP.",
-    strategy: "Editorial PDPs, ritual-based bundles and a subscription flow written like a letter, not a form.",
-    solution: "A custom Hydrogen build with a modular design system, story blocks and a subtle motion language.",
+    research:
+      "Customer interviews and post-purchase surveys informed the story we told on each PDP.",
+    strategy:
+      "Editorial PDPs, ritual-based bundles and a subscription flow written like a letter, not a form.",
+    solution:
+      "A custom Hydrogen build with a modular design system, story blocks and a subtle motion language.",
     wireframes: "Modular PDP layouts prototyped and tested with existing customers before build.",
-    designProcess: "Serif display type paired with generous whitespace and considered product photography.",
-    development: "Shopify Hydrogen, Sanity for content, Klaviyo for lifecycle — all monitored with real-user metrics.",
+    designProcess:
+      "Serif display type paired with generous whitespace and considered product photography.",
+    development:
+      "Shopify Hydrogen, Sanity for content, Klaviyo for lifecycle — all monitored with real-user metrics.",
     stack: ["Hydrogen", "Sanity", "Klaviyo", "Shopify"],
     performance: [
       { label: "Lighthouse", value: "95" },
@@ -238,7 +243,8 @@ export const caseStudies: CaseStudy[] = [
     category: "Landing Page",
     year: "2024",
     headline: "Enterprise trust in a single scroll.",
-    summary: "A layered narrative page with interactive proof that nearly doubled qualified pipeline.",
+    summary:
+      "A layered narrative page with interactive proof that nearly doubled qualified pipeline.",
     outcome: "+92% SQLs, 2.4× form starts, -31% bounce rate.",
     tone: "from-[oklch(0.93_0.04_285)] to-[oklch(0.82_0.09_275)]",
     overview:
@@ -250,9 +256,12 @@ export const caseStudies: CaseStudy[] = [
       "Give sales an anchor for enterprise conversations",
       "Instrument every meaningful interaction",
     ],
-    research: "We interviewed six enterprise buyers and mapped their objections into an interactive proof section.",
-    strategy: "Layered narrative: hero, proof, calculator, testimonial, CTA — each earned by the last.",
-    solution: "Interactive ROI calculator, animated architecture diagram and a form pre-filled from the calculator.",
+    research:
+      "We interviewed six enterprise buyers and mapped their objections into an interactive proof section.",
+    strategy:
+      "Layered narrative: hero, proof, calculator, testimonial, CTA — each earned by the last.",
+    solution:
+      "Interactive ROI calculator, animated architecture diagram and a form pre-filled from the calculator.",
     wireframes: "Twelve wireframes stress-tested with real sales calls before build.",
     designProcess: "Restrained motion, editorial typography and clear information hierarchy.",
     development: "Next.js on Vercel with HubSpot forms and Segment tracking.",
@@ -296,10 +305,13 @@ export const caseStudies: CaseStudy[] = [
       "Give the internal team a system they can extend",
     ],
     research: "Investor and customer interviews shaped the positioning and visual direction.",
-    strategy: "One design system, three narrative pillars, and a marketing site that told the mission clearly.",
-    solution: "A new wordmark, a motion identity, an editorial site and a component library for the internal team.",
+    strategy:
+      "One design system, three narrative pillars, and a marketing site that told the mission clearly.",
+    solution:
+      "A new wordmark, a motion identity, an editorial site and a component library for the internal team.",
     wireframes: "Site IA and template wireframes locked before visual design began.",
-    designProcess: "Custom wordmark, considered typography, restrained color and a subtle motion language.",
+    designProcess:
+      "Custom wordmark, considered typography, restrained color and a subtle motion language.",
     development: "Webflow with a documented component library the marketing team maintains.",
     stack: ["Figma", "After Effects", "Webflow"],
     performance: [

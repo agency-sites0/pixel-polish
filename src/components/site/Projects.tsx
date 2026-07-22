@@ -93,7 +93,9 @@ export function Projects() {
 
         {/* Filter + grid */}
         <div className="mt-20 flex flex-wrap items-center justify-between gap-4">
-          <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">More work</h3>
+          <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            More work
+          </h3>
           <div className="flex flex-wrap gap-1 rounded-full border border-border bg-background/70 p-1 backdrop-blur">
             {filters.map((f) => (
               <button

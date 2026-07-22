@@ -44,17 +44,17 @@ export function Testimonials() {
   return (
     <section className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeader
-          eyebrow="Testimonials"
-          title="Trusted by teams who don't settle."
-        />
+        <SectionHeader eyebrow="Testimonials" title="Trusted by teams who don't settle." />
 
         <Reveal>
           <div className="relative mx-auto mt-16 max-w-3xl">
             <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 sm:p-12">
               <div className="flex items-center gap-1">
                 {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} className="size-4 fill-[var(--color-accent-blue)] text-[var(--color-accent-blue)]" />
+                  <Star
+                    key={s}
+                    className="size-4 fill-[var(--color-accent-blue)] text-[var(--color-accent-blue)]"
+                  />
                 ))}
               </div>
               <AnimatePresence mode="wait">

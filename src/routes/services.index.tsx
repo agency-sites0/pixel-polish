@@ -5,25 +5,34 @@ import { Framework } from "@/components/site/Framework";
 import { AfterLaunch } from "@/components/site/AfterLaunch";
 import { CTA } from "@/components/site/CTA";
 import { services } from "@/lib/services";
+import { SITE_URL } from "@/lib/site";
 
 const icons = {
-  "websites": Globe,
+  websites: Globe,
   "landing-pages": Rocket,
   "ai-chatbots": Bot,
-  "automation": Workflow,
+  automation: Workflow,
 } as const;
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Services — Websites, Landing Pages, AI · Nordwell" },
-      { name: "description", content: "Four services, one focus: measurable business outcomes. Conversion websites, landing pages, AI assistants and business automation." },
+      {
+        name: "description",
+        content:
+          "Four services, one focus: measurable business outcomes. Conversion websites, landing pages, AI assistants and business automation.",
+      },
       { property: "og:title", content: "Services · Nordwell" },
-      { property: "og:description", content: "Conversion websites, landing pages, AI assistants and automation for ambitious businesses." },
+      {
+        property: "og:description",
+        content:
+          "Conversion websites, landing pages, AI assistants and automation for ambitious businesses.",
+      },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://elevated-experience-co.lovable.app/services" },
+      { property: "og:url", content: `${SITE_URL}/services` },
     ],
-    links: [{ rel: "canonical", href: "https://elevated-experience-co.lovable.app/services" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/services` }],
   }),
   component: ServicesOverview,
 });
@@ -67,7 +76,9 @@ function ServicesOverview() {
                     </h3>
                     <p className="mt-3 max-w-md text-sm text-muted-foreground">{s.headline}</p>
                     <div className="mt-8 flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
-                      <div>From <span className="font-medium text-foreground">{s.pricingFrom}</span></div>
+                      <div>
+                        From <span className="font-medium text-foreground">{s.pricingFrom}</span>
+                      </div>
                       <div>{s.timeline}</div>
                       <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </div>

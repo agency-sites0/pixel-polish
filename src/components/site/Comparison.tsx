@@ -2,12 +2,37 @@ import { Check, X } from "lucide-react";
 import { Reveal, SectionHeader } from "./Reveal";
 
 const rows = [
-  { label: "Senior team on every project", us: true, them: false, agency: "Junior teams behind account managers" },
-  { label: "Business KPIs agreed before design", us: true, them: false, agency: "Deliverables agreed, outcomes optional" },
-  { label: "Strategy, design, engineering and AI in-house", us: true, them: false, agency: "Chained hand-offs and freelancers" },
-  { label: "Fixed scope, fixed timeline", us: true, them: false, agency: "Change requests and creep" },
+  {
+    label: "Senior team on every project",
+    us: true,
+    them: false,
+    agency: "Junior teams behind account managers",
+  },
+  {
+    label: "Business KPIs agreed before design",
+    us: true,
+    them: false,
+    agency: "Deliverables agreed, outcomes optional",
+  },
+  {
+    label: "Strategy, design, engineering and AI in-house",
+    us: true,
+    them: false,
+    agency: "Chained hand-offs and freelancers",
+  },
+  {
+    label: "Fixed scope, fixed timeline",
+    us: true,
+    them: false,
+    agency: "Change requests and creep",
+  },
   { label: "Post-launch growth partnership", us: true, them: false, agency: "Delivered and gone" },
-  { label: "Case studies with real numbers", us: true, them: false, agency: "Screenshots and adjectives" },
+  {
+    label: "Case studies with real numbers",
+    us: true,
+    them: false,
+    agency: "Screenshots and adjectives",
+  },
 ];
 
 export function Comparison() {

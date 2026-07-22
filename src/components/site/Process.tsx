@@ -55,7 +55,10 @@ export function Process() {
           description="Seven steps that connect strategy to revenue — each one designed to answer the question your board will ask."
         />
         <div className="mt-16 relative">
-          <div aria-hidden className="absolute left-6 top-2 bottom-2 w-px bg-gradient-to-b from-border via-border to-transparent sm:left-1/2" />
+          <div
+            aria-hidden
+            className="absolute left-6 top-2 bottom-2 w-px bg-gradient-to-b from-border via-border to-transparent sm:left-1/2"
+          />
           <ol className="grid gap-6">
             {steps.map((s, i) => (
               <Reveal key={s.n} i={i}>
@@ -72,7 +75,9 @@ export function Process() {
                     <div className="font-display text-xs font-medium tracking-widest text-[var(--color-accent-blue)]">
                       STEP {s.n}
                     </div>
-                    <h3 className="mt-1 font-display text-2xl font-semibold tracking-tight">{s.t}</h3>
+                    <h3 className="mt-1 font-display text-2xl font-semibold tracking-tight">
+                      {s.t}
+                    </h3>
                     <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
                     <p className="mt-3 border-t border-border pt-3 text-xs italic text-foreground/70">
                       {s.why}

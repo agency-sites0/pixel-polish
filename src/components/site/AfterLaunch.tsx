@@ -2,12 +2,36 @@ import { Reveal, SectionHeader } from "./Reveal";
 import { Rocket, LineChart, Search, FlaskConical, Users, Wrench } from "lucide-react";
 
 const items = [
-  { icon: Rocket, t: "Launch support", b: "We stay hands-on for the first 30 days — smoothing anything the analytics surface." },
-  { icon: LineChart, t: "Analytics reviews", b: "Monthly reads on what's converting, what's dead weight and what to change next." },
-  { icon: Search, t: "SEO care plans", b: "Technical SEO, content briefs, internal linking — compounding traffic quarter over quarter." },
-  { icon: FlaskConical, t: "CRO experiments", b: "Structured A/B tests that lift conversion without needing a rebuild." },
-  { icon: Users, t: "AI assistant tuning", b: "Prompt refinement, new intents, monthly QA on every conversation your assistant handles." },
-  { icon: Wrench, t: "Ongoing engineering", b: "New sections, integrations, campaigns — shipped weekly by the same team who launched you." },
+  {
+    icon: Rocket,
+    t: "Launch support",
+    b: "We stay hands-on for the first 30 days — smoothing anything the analytics surface.",
+  },
+  {
+    icon: LineChart,
+    t: "Analytics reviews",
+    b: "Monthly reads on what's converting, what's dead weight and what to change next.",
+  },
+  {
+    icon: Search,
+    t: "SEO care plans",
+    b: "Technical SEO, content briefs, internal linking — compounding traffic quarter over quarter.",
+  },
+  {
+    icon: FlaskConical,
+    t: "CRO experiments",
+    b: "Structured A/B tests that lift conversion without needing a rebuild.",
+  },
+  {
+    icon: Users,
+    t: "AI assistant tuning",
+    b: "Prompt refinement, new intents, monthly QA on every conversation your assistant handles.",
+  },
+  {
+    icon: Wrench,
+    t: "Ongoing engineering",
+    b: "New sections, integrations, campaigns — shipped weekly by the same team who launched you.",
+  },
 ];
 
 export function AfterLaunch() {

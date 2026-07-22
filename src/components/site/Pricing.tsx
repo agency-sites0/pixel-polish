@@ -114,7 +114,9 @@ export function Pricing() {
                       <Check
                         className={cn(
                           "mt-0.5 size-4 shrink-0",
-                          t.featured ? "text-[var(--color-accent-blue)]" : "text-[var(--color-accent-blue)]",
+                          t.featured
+                            ? "text-[var(--color-accent-blue)]"
+                            : "text-[var(--color-accent-blue)]",
                         )}
                       />
                       <span className={t.featured ? "text-background/90" : "text-foreground/80"}>
@@ -128,9 +130,7 @@ export function Pricing() {
                   href="#contact"
                   className={cn(
                     "mt-10 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition-transform hover:-translate-y-0.5",
-                    t.featured
-                      ? "bg-background text-foreground"
-                      : "bg-foreground text-background",
+                    t.featured ? "bg-background text-foreground" : "bg-foreground text-background",
                   )}
                 >
                   {t.cta}

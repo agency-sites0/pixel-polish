@@ -35,7 +35,8 @@ const services = [
     problem: "Your team is stuck in manual work that software should be doing.",
     solution:
       "Custom workflows that connect your site, inbox, CRM and internal tools — so leads, quotes and follow-ups happen automatically.",
-    outcome: "Fewer hours in operations, faster sales cycles, a business that scales without hiring.",
+    outcome:
+      "Fewer hours in operations, faster sales cycles, a business that scales without hiring.",
     tag: "04",
   },
 ];
@@ -70,15 +71,21 @@ export function Services() {
                 </h3>
                 <dl className="mt-6 grid gap-4 text-sm">
                   <div>
-                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">Problem</dt>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                      Problem
+                    </dt>
                     <dd className="mt-1.5 text-foreground/80">{s.problem}</dd>
                   </div>
                   <div>
-                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">Solution</dt>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                      Solution
+                    </dt>
                     <dd className="mt-1.5 text-foreground/80">{s.solution}</dd>
                   </div>
                   <div>
-                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-accent-blue)]">Outcome</dt>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-accent-blue)]">
+                      Outcome
+                    </dt>
                     <dd className="mt-1.5 font-medium text-foreground">{s.outcome}</dd>
                   </div>
                 </dl>

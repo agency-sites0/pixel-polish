@@ -1,14 +1,39 @@
-import { Banknote, HeartPulse, Building2, ShoppingBag, GraduationCap, Rocket, Scale, Sprout } from "lucide-react";
+import {
+  Banknote,
+  HeartPulse,
+  Building2,
+  ShoppingBag,
+  GraduationCap,
+  Rocket,
+  Scale,
+  Sprout,
+} from "lucide-react";
 import { Reveal, SectionHeader } from "./Reveal";
 
 const industries = [
-  { icon: Banknote, t: "Fintech & SaaS", d: "Positioning complex platforms for enterprise buyers." },
+  {
+    icon: Banknote,
+    t: "Fintech & SaaS",
+    d: "Positioning complex platforms for enterprise buyers.",
+  },
   { icon: Building2, t: "Real Estate", d: "AI concierges that book viewings around the clock." },
-  { icon: ShoppingBag, t: "DTC & Retail", d: "Editorial commerce that raises AOV without discounts." },
-  { icon: HeartPulse, t: "Health & Wellness", d: "Trust-first sites for regulated, high-consideration buyers." },
+  {
+    icon: ShoppingBag,
+    t: "DTC & Retail",
+    d: "Editorial commerce that raises AOV without discounts.",
+  },
+  {
+    icon: HeartPulse,
+    t: "Health & Wellness",
+    d: "Trust-first sites for regulated, high-consideration buyers.",
+  },
   { icon: GraduationCap, t: "Education", d: "Enrolment funnels and student-facing AI support." },
   { icon: Rocket, t: "Startups", d: "Series A–C teams turning traction into a category leader." },
-  { icon: Scale, t: "Professional Services", d: "Law, accounting and consulting firms winning inbound." },
+  {
+    icon: Scale,
+    t: "Professional Services",
+    d: "Law, accounting and consulting firms winning inbound.",
+  },
   { icon: Sprout, t: "Climate & Impact", d: "Serious brands for teams doing serious work." },
 ];
 

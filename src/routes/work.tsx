@@ -8,20 +8,35 @@ import { FloatingCTA } from "@/components/site/FloatingCTA";
 import { Reveal, SectionHeader } from "@/components/site/Reveal";
 import { caseStudies } from "@/lib/case-studies";
 import { CTA } from "@/components/site/CTA";
+import { SITE_URL } from "@/lib/site";
 
-const categories = ["All", "Website", "Landing Page", "AI Assistant", "Automation", "Branding"] as const;
+const categories = [
+  "All",
+  "Website",
+  "Landing Page",
+  "AI Assistant",
+  "Automation",
+  "Branding",
+] as const;
 
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
       { title: "Work — Case studies · Nordwell" },
-      { name: "description", content: "Selected case studies from Nordwell Studio: fintech, real estate, consumer, health and climate. Every engagement anchored to a measurable business outcome." },
+      {
+        name: "description",
+        content:
+          "Selected case studies from Nordwell Studio: fintech, real estate, consumer, health and climate. Every engagement anchored to a measurable business outcome.",
+      },
       { property: "og:title", content: "Work — Case studies · Nordwell" },
-      { property: "og:description", content: "Selected case studies with the numbers to prove they moved the business." },
+      {
+        property: "og:description",
+        content: "Selected case studies with the numbers to prove they moved the business.",
+      },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://elevated-experience-co.lovable.app/work" },
+      { property: "og:url", content: `${SITE_URL}/work` },
     ],
-    links: [{ rel: "canonical", href: "https://elevated-experience-co.lovable.app/work" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/work` }],
   }),
   component: WorkPage,
 });

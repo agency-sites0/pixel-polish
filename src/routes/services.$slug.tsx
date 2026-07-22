@@ -8,12 +8,13 @@ import { ChatbotDemo } from "@/components/site/ChatbotDemo";
 import { CTA } from "@/components/site/CTA";
 import { getService, services, type Service } from "@/lib/services";
 import { caseStudies } from "@/lib/case-studies";
+import { SITE_URL } from "@/lib/site";
 
 const icons = {
-  "websites": Globe,
+  websites: Globe,
   "landing-pages": Rocket,
   "ai-chatbots": Bot,
-  "automation": Workflow,
+  automation: Workflow,
 } as const;
 
 type Slug = keyof typeof icons;
@@ -29,7 +30,7 @@ export const Route = createFileRoute("/services/$slug")({
       return { meta: [{ title: "Service — Nordwell" }, { name: "robots", content: "noindex" }] };
     }
     const s = loaderData.service;
-    const url = `https://elevated-experience-co.lovable.app/services/${s.slug}`;
+    const url = `${SITE_URL}/services/${s.slug}`;
     return {
       meta: [
         { title: `${s.name} · Nordwell` },
@@ -40,16 +41,18 @@ export const Route = createFileRoute("/services/$slug")({
         { property: "og:url", content: url },
       ],
       links: [{ rel: "canonical", href: url }],
-      scripts: [{
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: s.name,
-          description: s.lede,
-          provider: { "@type": "Organization", name: "Nordwell Studio" },
-        }),
-      }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: s.name,
+            description: s.lede,
+            provider: { "@type": "Organization", name: "Nordwell Studio" },
+          }),
+        },
+      ],
     };
   },
   component: ServicePage,
@@ -62,7 +65,10 @@ function NotFoundBlock() {
       <div className="mx-auto max-w-3xl px-5 text-center">
         <h1 className="font-display text-4xl font-semibold tracking-tight">Service not found</h1>
         <p className="mt-4 text-muted-foreground">The service you're looking for doesn't exist.</p>
-        <Link to="/services" className="mt-8 inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background">
+        <Link
+          to="/services"
+          className="mt-8 inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background"
+        >
           Back to services <ArrowUpRight className="size-3.5" />
         </Link>
       </div>
@@ -99,21 +105,31 @@ function ServicePage() {
           </Reveal>
           <Reveal i={4}>
             <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Link to="/contact" className="group inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background">
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background"
+              >
                 Book a strategy call
                 <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
-              <Link to="/free-audit" className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground">
+              <Link
+                to="/free-audit"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground"
+              >
                 Get a free audit
               </Link>
               <div className="ml-auto flex items-center gap-6 text-xs text-muted-foreground">
                 <div>
                   <div className="text-muted-foreground">From</div>
-                  <div className="font-display text-lg font-semibold text-foreground">{service.pricingFrom}</div>
+                  <div className="font-display text-lg font-semibold text-foreground">
+                    {service.pricingFrom}
+                  </div>
                 </div>
                 <div>
                   <div className="text-muted-foreground">Timeline</div>
-                  <div className="font-display text-lg font-semibold text-foreground">{service.timeline}</div>
+                  <div className="font-display text-lg font-semibold text-foreground">
+                    {service.timeline}
+                  </div>
                 </div>
                 <div className="hidden size-14 place-items-center rounded-2xl border border-border bg-background sm:grid">
                   <Icon className="size-6" />
@@ -132,7 +148,9 @@ function ServicePage() {
             {service.problems.map((p, i) => (
               <Reveal key={p} i={i}>
                 <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6">
-                  <div className="mt-1 grid size-6 shrink-0 place-items-center rounded-full border border-border bg-background text-foreground/60">—</div>
+                  <div className="mt-1 grid size-6 shrink-0 place-items-center rounded-full border border-border bg-background text-foreground/60">
+                    —
+                  </div>
                   <p className="text-sm text-foreground/80">{p}</p>
                 </div>
               </Reveal>
@@ -146,10 +164,17 @@ function ServicePage() {
         <div className="mx-auto max-w-6xl px-5">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <SectionHeader align="left" eyebrow="Deliverables" title="What you'll walk away with." />
+              <SectionHeader
+                align="left"
+                eyebrow="Deliverables"
+                title="What you'll walk away with."
+              />
               <ul className="mt-8 space-y-3">
                 {service.deliverables.map((d) => (
-                  <li key={d} className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4">
+                  <li
+                    key={d}
+                    className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4"
+                  >
                     <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-foreground text-background">
                       <Check className="size-3" />
                     </span>
@@ -164,7 +189,9 @@ function ServicePage() {
                 {service.benefits.map((b, i) => (
                   <Reveal key={b.title} i={i}>
                     <div className="rounded-2xl border border-border bg-card p-6">
-                      <div className="font-display text-lg font-semibold tracking-tight">{b.title}</div>
+                      <div className="font-display text-lg font-semibold tracking-tight">
+                        {b.title}
+                      </div>
                       <p className="mt-2 text-sm text-muted-foreground">{b.body}</p>
                     </div>
                   </Reveal>
@@ -194,8 +221,12 @@ function ServicePage() {
                   >
                     <div className={`aspect-[16/9] w-full bg-gradient-to-br ${c.tone}`} />
                     <div className="p-6">
-                      <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">{c.industry}</div>
-                      <h3 className="mt-2 font-display text-xl font-semibold tracking-tight">{c.name}</h3>
+                      <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                        {c.industry}
+                      </div>
+                      <h3 className="mt-2 font-display text-xl font-semibold tracking-tight">
+                        {c.name}
+                      </h3>
                       <p className="mt-2 text-sm text-muted-foreground">{c.headline}</p>
                       <div className="mt-4 flex items-center justify-between text-sm">
                         <span className="font-medium">{c.outcome}</span>
@@ -237,8 +268,12 @@ function ServicePage() {
                 className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 transition-colors hover:bg-accent/40"
               >
                 <div>
-                  <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">— {s.tag}</div>
-                  <div className="mt-2 font-display text-lg font-semibold tracking-tight">{s.name}</div>
+                  <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                    — {s.tag}
+                  </div>
+                  <div className="mt-2 font-display text-lg font-semibold tracking-tight">
+                    {s.name}
+                  </div>
                 </div>
                 <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>

@@ -21,8 +21,7 @@ export function About() {
                 </p>
                 <p>
                   We pick a handful of clients each quarter and go deep. That means fewer, better
-                  projects — with metrics we can defend and craft we can be proud of years from
-                  now.
+                  projects — with metrics we can defend and craft we can be proud of years from now.
                 </p>
               </div>
             </Reveal>

@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { OG_IMAGE_URL, SITE_URL } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -78,20 +79,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Nordwell — Websites, Landing Pages & AI Automation" },
-      { name: "description", content: "A boutique digital studio crafting high-converting websites, landing pages and AI chatbots for ambitious teams." },
+      {
+        name: "description",
+        content:
+          "A boutique digital studio crafting high-converting websites, landing pages and AI chatbots for ambitious teams.",
+      },
       { name: "author", content: "Nordwell Studio" },
       { property: "og:title", content: "Nordwell — Websites, Landing Pages & AI Automation" },
-      { property: "og:description", content: "Handcrafted websites, landing pages and AI automation that turn traffic into revenue." },
+      {
+        property: "og:description",
+        content:
+          "Handcrafted websites, landing pages and AI automation that turn traffic into revenue.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE_URL },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@nordwell" },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+      { name: "theme-color", content: "#0b1020" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

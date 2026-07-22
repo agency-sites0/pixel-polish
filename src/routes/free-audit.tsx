@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { Toaster, toast } from "sonner";
 import { ArrowUpRight, Check, Play } from "lucide-react";
@@ -7,18 +8,28 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingCTA } from "@/components/site/FloatingCTA";
 import { Reveal, SectionHeader } from "@/components/site/Reveal";
+import { submitAuditRequest } from "@/lib/lead-forms";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/free-audit")({
   head: () => ({
     meta: [
       { title: "Free website audit — Personalised video review · Nordwell" },
-      { name: "description", content: "A private video audit of your website covering conversion, UX, SEO and AI opportunities — delivered in 5 business days. Free, no pitch." },
+      {
+        name: "description",
+        content:
+          "A private video audit of your website covering conversion, UX, SEO and AI opportunities — delivered in 5 business days. Free, no pitch.",
+      },
       { property: "og:title", content: "Free website audit · Nordwell" },
-      { property: "og:description", content: "A personalised video audit of your website — conversion, UX, SEO and AI opportunities." },
+      {
+        property: "og:description",
+        content:
+          "A personalised video audit of your website — conversion, UX, SEO and AI opportunities.",
+      },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://elevated-experience-co.lovable.app/free-audit" },
+      { property: "og:url", content: `${SITE_URL}/free-audit` },
     ],
-    links: [{ rel: "canonical", href: "https://elevated-experience-co.lovable.app/free-audit" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/free-audit` }],
   }),
   component: FreeAuditPage,
 });
@@ -34,9 +45,18 @@ const schema = z.object({
 
 const benefits = [
   { t: "Actually personalised", b: "Recorded live on your site — not an automated report card." },
-  { t: "Reviewed by a partner", b: "The same senior team you'd hire, doing the diagnosis themselves." },
-  { t: "Priority-ranked", b: "Fixes ordered by the impact on revenue, not the ease of doing them." },
-  { t: "Yours to keep", b: "Use the recording in-house or share it with your dev team. No strings." },
+  {
+    t: "Reviewed by a partner",
+    b: "The same senior team you'd hire, doing the diagnosis themselves.",
+  },
+  {
+    t: "Priority-ranked",
+    b: "Fixes ordered by the impact on revenue, not the ease of doing them.",
+  },
+  {
+    t: "Yours to keep",
+    b: "Use the recording in-house or share it with your dev team. No strings.",
+  },
 ];
 
 const checklist = [
@@ -53,11 +73,26 @@ const checklist = [
 ];
 
 const faq = [
-  { q: "Is it really free?", a: "Yes. No credit card, no obligation. We record roughly one audit a week and enjoy the diagnostic work." },
-  { q: "Who is it for?", a: "Founders and marketing leads of service businesses generating meaningful traffic who feel their site under-performs." },
-  { q: "How long is the video?", a: "Usually 10–15 minutes. Long enough to be useful, short enough to actually watch." },
-  { q: "Will you pitch me?", a: "No pitch during the audit. If you'd like to work together after, we'll happily talk — otherwise you keep the recording either way." },
-  { q: "How long does it take?", a: "You'll receive the video within 5 business days of submitting the form." },
+  {
+    q: "Is it really free?",
+    a: "Yes. No credit card, no obligation. We record roughly one audit a week and enjoy the diagnostic work.",
+  },
+  {
+    q: "Who is it for?",
+    a: "Founders and marketing leads of service businesses generating meaningful traffic who feel their site under-performs.",
+  },
+  {
+    q: "How long is the video?",
+    a: "Usually 10–15 minutes. Long enough to be useful, short enough to actually watch.",
+  },
+  {
+    q: "Will you pitch me?",
+    a: "No pitch during the audit. If you'd like to work together after, we'll happily talk — otherwise you keep the recording either way.",
+  },
+  {
+    q: "How long does it take?",
+    a: "You'll receive the video within 5 business days of submitting the form.",
+  },
 ];
 
 function FreeAuditPage() {
@@ -71,21 +106,41 @@ function FreeAuditPage() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
+  const submitAuditRequestFn = useServerFn(submitAuditRequest);
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const result = schema.safeParse(values);
+    const result = schema.safeParse({
+      ...values,
+      honeypot: "",
+    });
     if (!result.success) {
       const first = result.error.issues[0]?.message ?? "Please check the form";
       toast.error(first);
       return;
     }
+
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      await submitAuditRequestFn({
+        data: {
+          website: result.data.website,
+          business: result.data.business,
+          industry: result.data.industry ?? "",
+          goals: result.data.goals,
+          challenges: result.data.challenges ?? "",
+          email: result.data.email,
+          honeypot: "",
+        },
+      });
       setDone(true);
       toast.success("Audit request received — we'll be in touch within 24 hours.");
-    }, 700);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Please check the form";
+      toast.error(message);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -106,8 +161,8 @@ function FreeAuditPage() {
                 </h1>
                 <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
                   Send us your URL. A partner will record a private walk-through of your site,
-                  highlighting the conversion, UX, SEO and AI opportunities most likely to move
-                  your numbers this quarter.
+                  highlighting the conversion, UX, SEO and AI opportunities most likely to move your
+                  numbers this quarter.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <a
@@ -171,7 +226,9 @@ function FreeAuditPage() {
                     <div className="font-display text-xs font-medium tracking-widest text-muted-foreground">
                       — 0{i + 1}
                     </div>
-                    <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">{b.t}</h3>
+                    <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">
+                      {b.t}
+                    </h3>
                     <p className="mt-2 text-sm text-muted-foreground">{b.b}</p>
                   </div>
                 </Reveal>
@@ -296,7 +353,10 @@ function FreeAuditPage() {
         </section>
 
         {/* Form */}
-        <section id="request-audit" className="relative border-t border-border bg-muted/30 py-24 sm:py-32">
+        <section
+          id="request-audit"
+          className="relative border-t border-border bg-muted/30 py-24 sm:py-32"
+        >
           <div className="mx-auto max-w-4xl px-5">
             <SectionHeader
               eyebrow="Request your audit"
@@ -320,6 +380,14 @@ function FreeAuditPage() {
                   </div>
                 ) : (
                   <form onSubmit={onSubmit} className="grid gap-5">
+                    <input
+                      type="text"
+                      name="honeypot"
+                      aria-hidden="true"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      className="hidden"
+                    />
                     <div className="grid gap-5 sm:grid-cols-2">
                       <Field
                         label="Website URL"

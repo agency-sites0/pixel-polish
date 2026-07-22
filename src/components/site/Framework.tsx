@@ -2,12 +2,42 @@ import { Reveal, SectionHeader } from "./Reveal";
 import { Compass, Target, PenTool, Code2, LineChart, Sparkles } from "lucide-react";
 
 const steps = [
-  { n: "01", icon: Compass, t: "Discover", b: "Deep audit of your business, buyers, competitors and current funnel. We surface the one metric that matters." },
-  { n: "02", icon: Target, t: "Strategy", b: "Positioning, messaging and the page-by-page plan. Every section gets a job before design starts." },
-  { n: "03", icon: PenTool, t: "Design", b: "Editorial visual system, component library, prototypes tested with real buyers." },
-  { n: "04", icon: Code2, t: "Develop", b: "Modern stack, production-grade code, real Core Web Vitals, analytics from day one." },
-  { n: "05", icon: LineChart, t: "Optimise", b: "Post-launch experiments, A/B tests and CRO — the site keeps getting sharper." },
-  { n: "06", icon: Sparkles, t: "Grow", b: "Ongoing support: SEO, content, new campaigns, AI automations layered in over time." },
+  {
+    n: "01",
+    icon: Compass,
+    t: "Discover",
+    b: "Deep audit of your business, buyers, competitors and current funnel. We surface the one metric that matters.",
+  },
+  {
+    n: "02",
+    icon: Target,
+    t: "Strategy",
+    b: "Positioning, messaging and the page-by-page plan. Every section gets a job before design starts.",
+  },
+  {
+    n: "03",
+    icon: PenTool,
+    t: "Design",
+    b: "Editorial visual system, component library, prototypes tested with real buyers.",
+  },
+  {
+    n: "04",
+    icon: Code2,
+    t: "Develop",
+    b: "Modern stack, production-grade code, real Core Web Vitals, analytics from day one.",
+  },
+  {
+    n: "05",
+    icon: LineChart,
+    t: "Optimise",
+    b: "Post-launch experiments, A/B tests and CRO — the site keeps getting sharper.",
+  },
+  {
+    n: "06",
+    icon: Sparkles,
+    t: "Grow",
+    b: "Ongoing support: SEO, content, new campaigns, AI automations layered in over time.",
+  },
 ];
 
 export function Framework() {

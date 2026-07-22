@@ -5,7 +5,12 @@ import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { Reveal } from "@/components/site/Reveal";
-import { caseStudies, getAdjacentCaseStudies, getCaseStudy, type CaseStudy } from "@/lib/case-studies";
+import {
+  caseStudies,
+  getAdjacentCaseStudies,
+  getCaseStudy,
+  type CaseStudy,
+} from "@/lib/case-studies";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/case-studies/$slug")({
@@ -16,7 +21,12 @@ export const Route = createFileRoute("/case-studies/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Case study not found — Nordwell" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Case study not found — Nordwell" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     const { study } = loaderData;
     const title = `${study.name} — ${study.headline} · Nordwell`;
@@ -40,7 +50,9 @@ function NotFound() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4 text-center">
       <div>
         <div className="font-display text-2xl font-semibold">Case study not found</div>
-        <Link to="/" className="mt-4 inline-block text-sm underline">Back to home</Link>
+        <Link to="/" className="mt-4 inline-block text-sm underline">
+          Back to home
+        </Link>
       </div>
     </div>
   );
@@ -58,7 +70,10 @@ function CaseStudyPage() {
       <main className="pt-32 sm:pt-40">
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-5">
-          <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground"
+          >
             <ArrowLeft className="size-3.5" /> All case studies
           </Link>
           <div className="mt-8 flex flex-wrap items-center gap-3 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -73,7 +88,12 @@ function CaseStudyPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{study.summary}</p>
 
-          <div className={cn("mt-14 h-[380px] overflow-hidden rounded-[32px] border border-border bg-gradient-to-br", study.tone)}>
+          <div
+            className={cn(
+              "mt-14 h-[380px] overflow-hidden rounded-[32px] border border-border bg-gradient-to-br",
+              study.tone,
+            )}
+          >
             <div className="grid h-full place-items-center p-8">
               <div className="w-full max-w-2xl rounded-2xl bg-background/70 p-8 shadow-2xl backdrop-blur">
                 <div className="h-2 w-24 rounded-full bg-foreground/70" />
@@ -128,7 +148,10 @@ function CaseStudyPage() {
             <Kicker>Technology stack</Kicker>
             <div className="mt-4 flex flex-wrap gap-2">
               {study.stack.map((s) => (
-                <span key={s} className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground/80">
+                <span
+                  key={s}
+                  className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground/80"
+                >
                   {s}
                 </span>
               ))}
@@ -140,7 +163,9 @@ function CaseStudyPage() {
             <div className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
               {study.performance.map((p) => (
                 <div key={p.label} className="bg-card p-5">
-                  <div className="font-display text-2xl font-semibold tracking-tight">{p.value}</div>
+                  <div className="font-display text-2xl font-semibold tracking-tight">
+                    {p.value}
+                  </div>
                   <div className="mt-1 text-xs text-muted-foreground">{p.label}</div>
                 </div>
               ))}
@@ -155,12 +180,22 @@ function CaseStudyPage() {
           <Kicker>Gallery</Kicker>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {[0, 1, 2, 3].map((k) => (
-              <div key={k} className={cn("h-64 rounded-3xl border border-border bg-gradient-to-br", study.tone)} />
+              <div
+                key={k}
+                className={cn(
+                  "h-64 rounded-3xl border border-border bg-gradient-to-br",
+                  study.tone,
+                )}
+              />
             ))}
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-[2fr_1fr]">
-            <div className={cn("h-72 rounded-3xl border border-border bg-gradient-to-br", study.tone)} />
-            <div className={cn("h-72 rounded-3xl border border-border bg-gradient-to-br", study.tone)} />
+            <div
+              className={cn("h-72 rounded-3xl border border-border bg-gradient-to-br", study.tone)}
+            />
+            <div
+              className={cn("h-72 rounded-3xl border border-border bg-gradient-to-br", study.tone)}
+            />
           </div>
         </section>
 
@@ -172,7 +207,10 @@ function CaseStudyPage() {
             </p>
             <div className="mt-8 flex items-center gap-3">
               <div className="grid size-11 place-items-center rounded-full bg-gradient-to-br from-[var(--color-accent-blue)] to-foreground font-display text-sm font-semibold text-background">
-                {study.testimonial.name.split(" ").map((n) => n[0]).join("")}
+                {study.testimonial.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")}
               </div>
               <div>
                 <div className="text-sm font-semibold">{study.testimonial.name}</div>
@@ -195,7 +233,9 @@ function CaseStudyPage() {
               >
                 <div className={cn("h-40 bg-gradient-to-br", r.tone)} />
                 <div className="p-5">
-                  <div className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">{r.industry}</div>
+                  <div className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                    {r.industry}
+                  </div>
                   <div className="mt-1 text-[15px] font-semibold">{r.name}</div>
                   <div className="mt-1 text-xs text-muted-foreground">{r.summary}</div>
                 </div>
@@ -216,7 +256,9 @@ function CaseStudyPage() {
                 <div className="flex items-center gap-3">
                   <ArrowLeft className="size-4 text-muted-foreground" />
                   <div>
-                    <div className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">Previous</div>
+                    <div className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+                      Previous
+                    </div>
                     <div className="mt-1 font-semibold">{prev.name}</div>
                   </div>
                 </div>
@@ -229,7 +271,9 @@ function CaseStudyPage() {
                 className="group flex items-center justify-between rounded-3xl border border-border bg-card p-6 text-right transition-colors hover:bg-accent/40 sm:col-start-2"
               >
                 <div className="flex-1">
-                  <div className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">Next</div>
+                  <div className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+                    Next
+                  </div>
                   <div className="mt-1 font-semibold">{next.name}</div>
                 </div>
                 <ArrowRight className="ml-3 size-4 text-muted-foreground" />

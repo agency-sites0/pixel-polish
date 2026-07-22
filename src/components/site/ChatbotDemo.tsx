@@ -6,20 +6,48 @@ import { Reveal, SectionHeader } from "./Reveal";
 type Msg = { from: "bot" | "user"; text: string; delay: number };
 
 const script: Msg[] = [
-  { from: "bot", text: "Hi 👋 I'm Ada — Nordwell's AI concierge. What are you building?", delay: 400 },
+  {
+    from: "bot",
+    text: "Hi 👋 I'm Ada — Nordwell's AI concierge. What are you building?",
+    delay: 400,
+  },
   { from: "user", text: "A landing page for a B2B fintech launch.", delay: 1400 },
   { from: "bot", text: "Perfect. What's your target launch window?", delay: 1400 },
   { from: "user", text: "Ideally in the next 4 weeks.", delay: 1200 },
-  { from: "bot", text: "Got it. Would you like to book a 20-min discovery call with our team?", delay: 1400 },
+  {
+    from: "bot",
+    text: "Got it. Would you like to book a 20-min discovery call with our team?",
+    delay: 1400,
+  },
 ];
 
 const workflow = [
   { icon: User, t: "Visitor arrives", d: "A prospect lands on your site, ad or WhatsApp." },
-  { icon: Bot, t: "AI assistant greets", d: "On-brand, trained on your business — never a generic bot." },
-  { icon: Filter, t: "Lead qualification", d: "Budget, timeline and fit understood in one short conversation." },
-  { icon: Calendar, t: "Appointment booked", d: "Straight into your calendar from live availability." },
-  { icon: Database, t: "CRM updated", d: "A warm lead — with a summary — appears in your pipeline." },
-  { icon: BellRing, t: "You're notified", d: "Slack, email or SMS so your team can close the loop fast." },
+  {
+    icon: Bot,
+    t: "AI assistant greets",
+    d: "On-brand, trained on your business — never a generic bot.",
+  },
+  {
+    icon: Filter,
+    t: "Lead qualification",
+    d: "Budget, timeline and fit understood in one short conversation.",
+  },
+  {
+    icon: Calendar,
+    t: "Appointment booked",
+    d: "Straight into your calendar from live availability.",
+  },
+  {
+    icon: Database,
+    t: "CRM updated",
+    d: "A warm lead — with a summary — appears in your pipeline.",
+  },
+  {
+    icon: BellRing,
+    t: "You're notified",
+    d: "Slack, email or SMS so your team can close the loop fast.",
+  },
 ];
 
 export function ChatbotDemo() {
@@ -128,7 +156,10 @@ export function ChatbotDemo() {
           </Reveal>
 
           <div className="relative">
-            <div aria-hidden className="absolute left-[19px] top-4 bottom-4 w-px bg-gradient-to-b from-border via-border to-transparent" />
+            <div
+              aria-hidden
+              className="absolute left-[19px] top-4 bottom-4 w-px bg-gradient-to-b from-border via-border to-transparent"
+            />
             <ol className="grid gap-3">
               {workflow.map((f, i) => (
                 <Reveal key={f.t} i={i}>

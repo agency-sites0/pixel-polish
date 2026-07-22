@@ -13,7 +13,10 @@ const logos = [
 
 export function TrustedBy() {
   return (
-    <section aria-label="Selected clients" className="relative border-y border-border/70 bg-background">
+    <section
+      aria-label="Selected clients"
+      className="relative border-y border-border/70 bg-background"
+    >
       <div className="mx-auto max-w-6xl px-5 py-10 sm:py-12">
         <Reveal>
           <div className="grid items-center gap-6 md:grid-cols-[auto_1fr]">

@@ -12,7 +12,9 @@ function InsightsLayout() {
   return (
     <div className="relative min-h-screen bg-background text-foreground antialiased">
       <Navbar />
-      <main className="pt-32"><Outlet /></main>
+      <main className="pt-32">
+        <Outlet />
+      </main>
       <Footer />
       <FloatingCTA />
       <Toaster position="bottom-right" theme="light" />
