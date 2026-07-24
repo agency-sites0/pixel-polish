@@ -14,13 +14,13 @@ import { SITE_URL } from "@/lib/site";
 export const Route = createFileRoute("/free-audit")({
   head: () => ({
     meta: [
-      { title: "Free website audit — Personalised video review · Nordwell" },
+      { title: "Free website audit — Personalised video review · Ascent" },
       {
         name: "description",
         content:
           "A private video audit of your website covering conversion, UX, SEO and AI opportunities — delivered in 5 business days. Free, no pitch.",
       },
-      { property: "og:title", content: "Free website audit · Nordwell" },
+      { property: "og:title", content: "Free website audit · Ascent" },
       {
         property: "og:description",
         content:

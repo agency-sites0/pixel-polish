@@ -22,13 +22,13 @@ const categories = [
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Work — Case studies · Nordwell" },
+      { title: "Work — Case studies · Ascent" },
       {
         name: "description",
         content:
-          "Selected case studies from Nordwell Studio: fintech, real estate, consumer, health and climate. Every engagement anchored to a measurable business outcome.",
+          "Selected case studies from Ascent Studio: fintech, real estate, consumer, health and climate. Every engagement anchored to a measurable business outcome.",
       },
-      { property: "og:title", content: "Work — Case studies · Nordwell" },
+      { property: "og:title", content: "Work — Case studies · Ascent" },
       {
         property: "og:description",
         content: "Selected case studies with the numbers to prove they moved the business.",

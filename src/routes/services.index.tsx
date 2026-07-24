@@ -17,13 +17,13 @@ const icons = {
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Services — Websites, Landing Pages, AI · Nordwell" },
+      { title: "Services — Websites, Landing Pages, AI · Ascent" },
       {
         name: "description",
         content:
           "Four services, one focus: measurable business outcomes. Conversion websites, landing pages, AI assistants and business automation.",
       },
-      { property: "og:title", content: "Services · Nordwell" },
+      { property: "og:title", content: "Services · Ascent" },
       {
         property: "og:description",
         content:

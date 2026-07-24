@@ -13,7 +13,7 @@ export const Route = createFileRoute("/insights/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData)
-      return { meta: [{ title: "Article — Nordwell" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Article — Ascent" }, { name: "robots", content: "noindex" }] };
     const a = loaderData.article;
     const url = `${SITE_URL}/insights/${a.slug}`;
     return {

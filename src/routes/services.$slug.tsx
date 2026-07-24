@@ -27,7 +27,7 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Service — Nordwell" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Service — Ascent" }, { name: "robots", content: "noindex" }] };
     }
     const s = loaderData.service;
     const url = `${SITE_URL}/services/${s.slug}`;
@@ -49,7 +49,7 @@ export const Route = createFileRoute("/services/$slug")({
             "@type": "Service",
             name: s.name,
             description: s.lede,
-            provider: { "@type": "Organization", name: "Nordwell Studio" },
+            provider: { "@type": "Organization", name: "Ascent Studio" },
           }),
         },
       ],

@@ -14,13 +14,13 @@ import { SITE_URL } from "@/lib/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Start a project · Nordwell" },
+      { title: "Contact — Start a project · Ascent" },
       {
         name: "description",
         content:
           "Tell us about your business and the number you want to move. We reply within one business day.",
       },
-      { property: "og:title", content: "Contact · Nordwell" },
+      { property: "og:title", content: "Contact · Ascent" },
       {
         property: "og:description",
         content:
@@ -207,9 +207,9 @@ function ContactPage() {
                 />
                 <ContactCard
                   icon={<Mail className="size-4" />}
-                  title="hello@nordwell.studio"
+                  title="hello@ascent.studio"
                   sub="Reply within one business day"
-                  href="mailto:hello@nordwell.studio"
+                  href="mailto:hello@ascent.studio"
                 />
                 <ContactCard
                   icon={<MessageCircle className="size-4" />}

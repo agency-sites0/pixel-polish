@@ -18,7 +18,7 @@ export const insights: Insight[] = [
     excerpt:
       "Most sites don't have a design problem. They have a message problem, a proof problem and a friction problem. Here's the playbook we use with every client.",
     readingTime: "8 min read",
-    author: "Nordwell Studio",
+    author: "Ascent Studio",
     date: "April 2025",
     tone: "from-[oklch(0.94_0.03_260)] to-[oklch(0.86_0.06_240)]",
     content: [
@@ -54,7 +54,7 @@ export const insights: Insight[] = [
     excerpt:
       "Chatbots either pay for themselves in a month — or they're a science project. Here's how we tell the difference before we build.",
     readingTime: "7 min read",
-    author: "Nordwell Studio",
+    author: "Ascent Studio",
     date: "March 2025",
     tone: "from-[oklch(0.93_0.03_60)] to-[oklch(0.84_0.09_45)]",
     content: [
@@ -82,7 +82,7 @@ export const insights: Insight[] = [
     excerpt:
       "The wrong pick can cost you six figures in paid spend. A simple frame we use to decide with founders in twenty minutes.",
     readingTime: "5 min read",
-    author: "Nordwell Studio",
+    author: "Ascent Studio",
     date: "March 2025",
     tone: "from-[oklch(0.92_0.06_150)] to-[oklch(0.82_0.09_170)]",
     content: [
@@ -110,7 +110,7 @@ export const insights: Insight[] = [
     excerpt:
       "AI answers changed search, but the fundamentals didn't. Technical foundations, real content, and structured data still win.",
     readingTime: "6 min read",
-    author: "Nordwell Studio",
+    author: "Ascent Studio",
     date: "February 2025",
     tone: "from-[oklch(0.93_0.04_20)] to-[oklch(0.84_0.09_10)]",
     content: [
@@ -138,7 +138,7 @@ export const insights: Insight[] = [
     excerpt:
       "A field guide from a hundred audits. Nine out of ten sites make at least six of these mistakes.",
     readingTime: "9 min read",
-    author: "Nordwell Studio",
+    author: "Ascent Studio",
     date: "February 2025",
     tone: "from-[oklch(0.93_0.04_285)] to-[oklch(0.82_0.09_275)]",
     content: [
@@ -194,7 +194,7 @@ export const insights: Insight[] = [
     excerpt:
       "The three workflows we ship first with almost every service business. Payback usually inside a month.",
     readingTime: "6 min read",
-    author: "Nordwell Studio",
+    author: "Ascent Studio",
     date: "January 2025",
     tone: "from-[oklch(0.94_0.03_200)] to-[oklch(0.82_0.08_215)]",
     content: [

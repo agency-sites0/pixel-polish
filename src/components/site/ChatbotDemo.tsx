@@ -8,7 +8,7 @@ type Msg = { from: "bot" | "user"; text: string; delay: number };
 const script: Msg[] = [
   {
     from: "bot",
-    text: "Hi 👋 I'm Ada — Nordwell's AI concierge. What are you building?",
+    text: "Hi 👋 I'm Ada — Ascent's AI concierge. What are you building?",
     delay: 400,
   },
   { from: "user", text: "A landing page for a B2B fintech launch.", delay: 1400 },
@@ -104,7 +104,7 @@ export function ChatbotDemo() {
                       </div>
                     </div>
                   </div>
-                  <div className="text-[11px] text-muted-foreground">Nordwell AI</div>
+                  <div className="text-[11px] text-muted-foreground">Ascent AI</div>
                 </div>
 
                 <div className="flex min-h-[420px] flex-col gap-3 p-5 sm:p-6">

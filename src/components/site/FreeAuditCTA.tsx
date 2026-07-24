@@ -63,7 +63,7 @@ export function FreeAuditCTA() {
                     <span className="size-2.5 rounded-full bg-emerald-400/70" />
                   </div>
                   <div className="ml-3 rounded-md bg-background/70 px-2.5 py-1 text-[11px] text-muted-foreground">
-                    audit.nordwell.studio · your-site.com
+                    audit.ascent.studio · your-site.com
                   </div>
                 </div>
                 <div className="relative aspect-[16/10] bg-gradient-to-br from-[oklch(0.96_0.01_240)] via-background to-[oklch(0.94_0.02_220)]">

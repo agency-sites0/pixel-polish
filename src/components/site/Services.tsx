@@ -5,38 +5,38 @@ const services = [
   {
     icon: Globe,
     title: "Custom Websites",
-    problem: "Your site looks the part but doesn't move the numbers.",
+    problem: "Your site tells your story, but doesn't answer the one question buyers ask: why you over your competitors?",
     solution:
-      "A bespoke site built around one goal: turning the right visitors into revenue — clear story, considered design, engineering that lasts.",
-    outcome: "More qualified leads, higher average deal size, a brand your team is proud to send.",
+      "A conversion-first website built around your buyer's journey — clear positioning, proof-rich messaging, and measurement baked in from day one.",
+    outcome: "Higher qualified lead volume, lower demo cancellations, competitive positioning that sticks.",
     tag: "01",
   },
   {
     icon: Rocket,
     title: "High-Converting Landing Pages",
-    problem: "You're paying for traffic that bounces before it reads the offer.",
+    problem: "Your paid spend is growing, but cost-per-lead keeps climbing because landing pages don't answer what makes you different.",
     solution:
-      "A single, sharp page — researched, written and designed around one decision — with instrumentation to prove what works.",
-    outcome: "Lower cost per lead, higher sign-up rate, a compounding advantage on paid.",
+      "A single-purpose page — researched against your competitor set, written for one decision, tested with real buyer feedback before launch.",
+    outcome: "Lower CAC, higher conversion rate, a compounding advantage that compounds with every campaign.",
     tag: "02",
   },
   {
     icon: Bot,
-    title: "AI Assistants",
-    problem: "Inquiries pile up after hours and your best leads go cold.",
+    title: "AI Lead Capture",
+    problem: "High-intent buyers arrive after hours. Your team replies Monday. By then, they've bought from a competitor who responded in minutes.",
     solution:
-      "An on-brand AI assistant trained on your business, wired into your calendar and CRM, with graceful human handoff.",
-    outcome: "Meetings booked while you sleep, faster response times, more revenue captured.",
+      "An on-brand AI concierge trained on your product, live on your site, calendar-connected and CRM-integrated — with graceful human handoff.",
+    outcome: "40–60% of after-hours inquiries converted while you sleep. Meetings booked automatically. Revenue captured you'd otherwise lose.",
     tag: "03",
   },
   {
     icon: Workflow,
-    title: "AI Automation",
-    problem: "Your team is stuck in manual work that software should be doing.",
+    title: "Revenue Automation",
+    problem: "Your sales team spends 10+ hours a week on manual CRM work, follow-ups, and quote generation that software should be doing.",
     solution:
-      "Custom workflows that connect your site, inbox, CRM and internal tools — so leads, quotes and follow-ups happen automatically.",
+      "Custom workflows connecting your website, email, CRM and internal tools — so inbound is routed, leads are qualified, and quotes are sent on autopilot.",
     outcome:
-      "Fewer hours in operations, faster sales cycles, a business that scales without hiring.",
+      "Sales team focuses on closing instead of admin. 15+ hours freed per week, per person. Revenue captured from leads that would otherwise slip.",
     tag: "04",
   },
 ];
@@ -47,8 +47,8 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeader
           eyebrow="Services"
-          title="What we build. Why it matters."
-          description="Four services, one focus: measurable business outcomes. Every engagement is led by a senior team — no hand-offs, no juniors learning on your budget."
+          title="What we build. Why it works."
+          description="Four services, one focus: capture revenue faster. We specialize in B2B SaaS and service businesses where every hire, every feature, and every launch carries real economic weight."
         />
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2">

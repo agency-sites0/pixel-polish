@@ -47,7 +47,7 @@ export function Navbar() {
           <span className="grid size-7 place-items-center rounded-lg bg-foreground text-background text-[13px] font-bold">
             N
           </span>
-          <span className="font-display text-[15px] font-semibold tracking-tight">Nordwell</span>
+          <span className="font-display text-[15px] font-semibold tracking-tight">Ascent</span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">

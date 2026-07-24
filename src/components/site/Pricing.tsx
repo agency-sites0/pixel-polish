@@ -4,47 +4,48 @@ import { cn } from "@/lib/utils";
 
 const tiers = [
   {
-    name: "Starter",
-    price: "$4,500",
-    tagline: "For focused launches.",
-    timeline: "2–3 weeks",
-    features: [
-      "Single high-converting page",
-      "Custom design & motion",
-      "CMS + analytics wiring",
-      "Basic SEO & schema",
-      "2 rounds of revisions",
-    ],
-    cta: "Start with Starter",
-  },
-  {
     name: "Growth",
     price: "$12,000",
-    tagline: "Our most popular package.",
+    tagline: "Designed for early-stage demand.",
     timeline: "4–6 weeks",
     features: [
-      "Up to 8-page marketing site",
+      "High-converting landing page or 5-page site",
       "Custom design system",
-      "CMS, analytics & experiments",
-      "AI chatbot (lead capture)",
-      "SEO, schema & performance",
-      "Post-launch care · 30 days",
+      "CMS, analytics & conversion experiments",
+      "Basic AI lead capture",
+      "SEO optimization & schema markup",
+      "3 months of monitoring & optimization",
+    ],
+    cta: "Start with Growth",
+  },
+  {
+    name: "Scale",
+    price: "$28,000",
+    tagline: "Most popular. Full revenue system.",
+    timeline: "6–8 weeks",
+    features: [
+      "Full website + case study system",
+      "Custom AI concierge + workflow automation",
+      "CRM, data integrations & lead routing",
+      "Competitive positioning audit",
+      "Quarterly experiments roadmap",
+      "Dedicated senior team + monthly strategy",
     ],
     cta: "Get started",
     featured: true,
   },
   {
-    name: "Scale",
-    price: "From $28k",
-    tagline: "For teams shipping revenue.",
-    timeline: "8–12 weeks",
+    name: "Enterprise",
+    price: "From $75k",
+    tagline: "For complex systems & integrations.",
+    timeline: "10–16 weeks",
     features: [
-      "Full website + case study system",
-      "Custom AI agent + automations",
-      "CRM & data integrations",
-      "Migration & change management",
-      "Quarterly experiments roadmap",
-      "Dedicated senior team",
+      "Full website + enterprise integrations",
+      "Custom AI systems + advanced automation",
+      "Multi-channel revenue capture (web, email, SMS)",
+      "Change management & team training",
+      "Quarterly business reviews",
+      "Dedicated account team",
     ],
     cta: "Book a strategy call",
   },
@@ -56,8 +57,8 @@ export function Pricing() {
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeader
           eyebrow="Packages"
-          title="Fixed scope. Honest pricing."
-          description="Three engagement shapes to match the moment you're in. Custom scopes on request."
+          title="Fixed scope. Transparent pricing."
+          description="Three engagement models. All include dedicated senior team, measurement built-in, and ongoing strategy through launch."
         />
 
         <div className="mt-16 grid gap-5 lg:grid-cols-3">

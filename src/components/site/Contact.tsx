@@ -87,7 +87,7 @@ export function Contact() {
                   <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
                 <a
-                  href="mailto:hello@nordwell.studio"
+                  href="mailto:hello@ascent.studio"
                   className="group flex items-center justify-between rounded-2xl border border-border bg-card px-5 py-4 transition-colors hover:bg-accent/50"
                 >
                   <div className="flex items-center gap-3">
@@ -95,7 +95,7 @@ export function Contact() {
                       <Mail className="size-4" />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold">hello@nordwell.studio</div>
+                      <div className="text-sm font-semibold">hello@ascent.studio</div>
                       <div className="text-xs text-muted-foreground">We reply within 24 hours</div>
                     </div>
                   </div>

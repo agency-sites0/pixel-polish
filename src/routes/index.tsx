@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
-import { TrustedBy } from "@/components/site/TrustedBy";
 import { Results } from "@/components/site/Results";
 import { Services } from "@/components/site/Services";
 import { Philosophy } from "@/components/site/Philosophy";
@@ -14,7 +13,6 @@ import { Industries } from "@/components/site/Industries";
 import { AfterLaunch } from "@/components/site/AfterLaunch";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Insights } from "@/components/site/Insights";
-import { FreeAuditCTA } from "@/components/site/FreeAuditCTA";
 import { CTA } from "@/components/site/CTA";
 import { Footer } from "@/components/site/Footer";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
@@ -24,13 +22,13 @@ import { SITE_URL } from "@/lib/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nordwell — Websites, Landing Pages & AI Automation for growing businesses" },
+      { title: "Ascent — Websites, Landing Pages & AI Automation for growing businesses" },
       {
         name: "description",
         content:
           "A boutique studio helping ambitious businesses turn traffic into revenue with conversion websites, high-performing landing pages and on-brand AI automation.",
       },
-      { property: "og:title", content: "Nordwell — Websites, Landing Pages & AI Automation" },
+      { property: "og:title", content: "Ascent — Websites, Landing Pages & AI Automation" },
       {
         property: "og:description",
         content:
@@ -48,11 +46,11 @@ function Index() {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Nordwell Studio",
-    url: "https://nordwell.studio",
+    name: "Ascent Studio",
+    url: "https://ascent.studio",
     description:
       "Boutique digital studio designing custom websites, landing pages and AI automation.",
-    sameAs: ["https://twitter.com/nordwell", "https://www.linkedin.com/company/nordwell"],
+    sameAs: ["https://twitter.com/ascent", "https://www.linkedin.com/company/ascent"],
   };
 
   return (
@@ -65,19 +63,17 @@ function Index() {
       <Navbar />
       <main>
         <Hero />
-        <TrustedBy />
         <Results />
         <Services />
         <Philosophy />
         <WhyUs />
         <Framework />
-        <Projects />
+  
         <ChatbotDemo />
         <Industries />
         <AfterLaunch />
         <Testimonials />
         <Insights />
-        <FreeAuditCTA />
         <CTA />
       </main>
       <Footer />

@@ -139,7 +139,7 @@ async function verifyTurnstile(token: string) {
 
 async function notifyAdmin(source: "contact" | "audit", data: Record<string, string | string[]>) {
   const apiKey = process.env.RESEND_API_KEY;
-  const recipient = process.env.CONTACT_EMAIL ?? "hello@nordwell.studio";
+  const recipient = process.env.CONTACT_EMAIL ?? "hello@ascent.studio";
   const fromAddress = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
   const services = Array.isArray(data.services)
     ? data.services

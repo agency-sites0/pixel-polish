@@ -8,13 +8,13 @@ import { SITE_URL } from "@/lib/site";
 export const Route = createFileRoute("/insights/")({
   head: () => ({
     meta: [
-      { title: "Insights — Journal · Nordwell" },
+      { title: "Insights — Journal · Ascent" },
       {
         name: "description",
         content:
           "Field notes on websites that convert, AI automation that pays back, and the studio craft behind it.",
       },
-      { property: "og:title", content: "Insights · Nordwell" },
+      { property: "og:title", content: "Insights · Ascent" },
       {
         property: "og:description",
         content: "Field notes on websites, landing pages and AI automation for growing businesses.",

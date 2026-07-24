@@ -10,7 +10,7 @@ export function About() {
               align="left"
               eyebrow="Our studio"
               title="Craft with a business case."
-              description="Nordwell exists because most agencies treat websites like brochures, and most freelancers treat businesses like projects. We do neither."
+              description="Ascent exists because most agencies treat websites like brochures, and most freelancers treat businesses like projects. We do neither."
             />
             <Reveal>
               <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-foreground/80">

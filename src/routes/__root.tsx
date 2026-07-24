@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nordwell — Websites, Landing Pages & AI Automation" },
+      { title: "Ascent — Websites, Landing Pages & AI Automation" },
       {
         name: "description",
         content:
           "A boutique digital studio crafting high-converting websites, landing pages and AI chatbots for ambitious teams.",
       },
-      { name: "author", content: "Nordwell Studio" },
-      { property: "og:title", content: "Nordwell — Websites, Landing Pages & AI Automation" },
+      { name: "author", content: "Ascent Studio" },
+      { property: "og:title", content: "Ascent — Websites, Landing Pages & AI Automation" },
       {
         property: "og:description",
         content:
@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:url", content: SITE_URL },
       { property: "og:image", content: OG_IMAGE_URL },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@nordwell" },
+      { name: "twitter:site", content: "@ascent" },
       { name: "twitter:image", content: OG_IMAGE_URL },
       { name: "theme-color", content: "#0b1020" },
     ],

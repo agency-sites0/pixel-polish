@@ -14,7 +14,7 @@ export function Footer() {
                 N
               </span>
               <span className="font-display text-[15px] font-semibold tracking-tight">
-                Nordwell
+                Ascent
               </span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
@@ -73,7 +73,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 sm:flex-row sm:items-center">
           <div className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Nordwell Studio · Handcrafted in Lisbon ·{" "}
+            © {new Date().getFullYear()} Ascent Studio · Handcrafted in Lisbon ·{" "}
             <a href="#" className="hover:text-foreground">
               Privacy
             </a>{" "}
@@ -104,7 +104,7 @@ export function Footer() {
           aria-hidden
           className="mt-16 select-none overflow-hidden text-center font-display text-[22vw] font-semibold leading-none tracking-tighter text-foreground/[0.04]"
         >
-          NORDWELL
+          ASCENT
         </div>
       </div>
     </footer>

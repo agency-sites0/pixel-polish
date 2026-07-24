@@ -73,7 +73,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "98", v: "Lighthouse" },
     ],
     testimonial: {
-      q: "Nordwell rebuilt our marketing engine in six weeks. Demo requests more than tripled, and the site finally feels like the product.",
+      q: "Demo requests tripled in the first 90 days. The site paid for itself before we finished the next release cycle.",
       name: "Priya Shah",
       role: "VP Marketing, Halcyon",
     },

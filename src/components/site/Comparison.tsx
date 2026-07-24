@@ -49,7 +49,7 @@ export function Comparison() {
           <div className="mt-14 overflow-hidden rounded-3xl border border-border bg-card">
             <div className="grid grid-cols-[1.6fr_1fr_1fr] items-center gap-2 border-b border-border bg-muted/40 px-6 py-4 text-xs font-medium uppercase tracking-widest text-muted-foreground sm:gap-6 sm:px-8">
               <div>How we compare</div>
-              <div className="text-center text-foreground">Nordwell</div>
+              <div className="text-center text-foreground">Ascent</div>
               <div className="text-center">Typical agency</div>
             </div>
             <ul>

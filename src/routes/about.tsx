@@ -14,13 +14,13 @@ import { SITE_URL } from "@/lib/site";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — A boutique studio built for outcomes · Nordwell" },
+      { title: "About — A boutique studio built for outcomes · Ascent" },
       {
         name: "description",
         content:
           "Nordwell is a small, senior studio building websites, landing pages and AI automation for ambitious teams. Meet the studio, our values and how we work.",
       },
-      { property: "og:title", content: "About · Nordwell" },
+      { property: "og:title", content: "About · Ascent" },
       {
         property: "og:description",
         content: "A small, senior studio for websites, landing pages and AI automation.",

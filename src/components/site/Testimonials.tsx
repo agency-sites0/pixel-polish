@@ -5,25 +5,25 @@ import { Reveal, SectionHeader } from "./Reveal";
 
 const quotes = [
   {
-    q: "Nordwell rebuilt our marketing engine in six weeks. Demo requests more than tripled, and the site finally feels like the product.",
+    q: "Demo requests tripled in the first 90 days. The site paid for itself before we finished the next release cycle.",
     name: "Priya Shah",
     role: "VP Marketing, Halcyon",
     company: "Halcyon",
   },
   {
-    q: "A rare studio that thinks about business outcomes as sharply as design. Every meeting felt like leverage.",
+    q: "They don't just build sites. They think like operators — every decision anchored to revenue, not aesthetics. That clarity compounds.",
     name: "Marc Devlin",
     role: "Founder, Fieldnote",
     company: "Fieldnote",
   },
   {
-    q: "The AI concierge they built handles 40% of viewings on autopilot. It paid for itself in the first month.",
+    q: "The AI concierge handles 40% of viewing requests unattended. ROI within the first month. Genuinely a revenue multiplier.",
     name: "Sofia Aramburu",
     role: "COO, Meridian",
     company: "Meridian",
   },
   {
-    q: "They ship faster than any agency we've hired, and the craft is uncompromising. Genuinely a partner.",
+    q: "We launched in 5 weeks instead of our planned 12. Quality is uncompromising. I'd partner with them again in a heartbeat.",
     name: "Elliot Grant",
     role: "CEO, Vantage",
     company: "Vantage",

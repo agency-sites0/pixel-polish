@@ -23,7 +23,7 @@ export const Route = createFileRoute("/case-studies/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Case study not found — Nordwell" },
+          { title: "Case study not found — Ascent" },
           { name: "robots", content: "noindex" },
         ],
       };
