@@ -41,7 +41,6 @@ const schema = z.object({
   goals: z.string().trim().min(10, "Tell us what a win looks like").max(600),
   challenges: z.string().trim().max(600).optional(),
   email: z.string().trim().email("Enter a valid email").max(255),
-  turnstileToken: z.string().trim().min(1, "Please complete the verification step"),
 });
 
 const benefits = [
@@ -107,70 +106,11 @@ function FreeAuditPage() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
-  const widgetRef = useRef<HTMLDivElement | null>(null);
-  const widgetIdRef = useRef<string | null>(null);
-  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY ?? "";
   const submitAuditRequestFn = useServerFn(submitAuditRequest);
-
-  useEffect(() => {
-    if (!turnstileSiteKey || !widgetRef.current) {
-      return;
-    }
-
-    const existingScript = document.querySelector<HTMLScriptElement>(
-      'script[data-turnstile-script="true"]',
-    );
-
-    const renderWidget = () => {
-      const turnstile = (
-        window as Window & {
-          turnstile?: {
-            render: (container: HTMLDivElement, options: Record<string, unknown>) => string;
-            remove: (id: string) => void;
-          };
-        }
-      ).turnstile;
-      if (!turnstile || !widgetRef.current) {
-        return;
-      }
-
-      if (widgetIdRef.current) {
-        turnstile.remove(widgetIdRef.current);
-      }
-
-      widgetIdRef.current = turnstile.render(widgetRef.current, {
-        sitekey: turnstileSiteKey,
-        theme: "light",
-        callback: (token: string) => setTurnstileToken(token),
-        "expired-callback": () => setTurnstileToken(""),
-      });
-    };
-
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-      script.async = true;
-      script.defer = true;
-      script.dataset.turnstileScript = "true";
-      script.addEventListener("load", renderWidget);
-      document.head.appendChild(script);
-      return () => {
-        script.removeEventListener("load", renderWidget);
-      };
-    }
-
-    if ((window as Window & { turnstile?: unknown }).turnstile) {
-      renderWidget();
-    }
-  }, [turnstileSiteKey]);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const result = schema.safeParse({
-      ...values,
-      turnstileToken,
-    });
+    const result = schema.safeParse(values);
     if (!result.success) {
       const first = result.error.issues[0]?.message ?? "Please check the form";
       toast.error(first);
@@ -187,7 +127,6 @@ function FreeAuditPage() {
           goals: result.data.goals,
           challenges: result.data.challenges ?? "",
           email: result.data.email,
-          turnstileToken: result.data.turnstileToken,
           honeypot: "",
         },
       });

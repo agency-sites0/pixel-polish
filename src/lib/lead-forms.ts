@@ -23,7 +23,6 @@ const AUDIT_SCHEMA = z.object({
   goals: z.string().trim().min(10, "Tell us what a win looks like").max(600),
   challenges: z.string().trim().max(600).optional().or(z.literal("")),
   email: z.string().trim().email("Enter a valid email").max(255),
-  turnstileToken: z.string().trim().min(1, "Please complete the verification step"),
   honeypot: z.string().trim().max(200).optional().or(z.literal("")),
 });
 
@@ -283,7 +282,6 @@ export const submitAuditRequest = createServerFn({ method: "POST" })
       throw new Error("Submission rejected.");
     }
 
-    await verifyTurnstile(data.turnstileToken);
     assertRateLimit(data.email);
 
     await persistLead("audit", {
