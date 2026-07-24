@@ -88,15 +88,37 @@ async function verifyTurnstile(token: string) {
   }
 
   const body = new URLSearchParams({ secret, response: token });
-  const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body,
-  });
+  
+  try {
+    const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
+    });
 
-  const result = (await response.json()) as { success?: boolean };
-  if (!result.success) {
-    throw new Error("Please complete the verification step.");
+    if (!response.ok) {
+      console.error(`Turnstile verification failed with status ${response.status}`);
+      throw new Error(
+        `Cloudflare verification service error (${response.status}). Please try again.`,
+      );
+    }
+
+    const result = (await response.json()) as { success?: boolean; error_codes?: string[] };
+    
+    if (!result.success) {
+      console.error("Turnstile verification failed:", result.error_codes);
+      throw new Error(
+        result.error_codes?.includes("invalid-input-secret")
+          ? "Server configuration error. Please contact support."
+          : "Please complete the verification step.",
+      );
+    }
+  } catch (error) {
+    if (error instanceof Error && error.message.includes("verification")) {
+      throw error;
+    }
+    console.error("Turnstile fetch error:", error);
+    throw new Error("Security verification service is temporarily unavailable. Please try again.");
   }
 }
 
