@@ -81,30 +81,46 @@ function assertRateLimit(key: string) {
 async function verifyTurnstile(token: string) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
 
+  console.log("[Turnstile Debug] Secret key configured:", !!secret);
+  console.log("[Turnstile Debug] Token length:", token.length);
+
   if (!secret) {
-    throw new Error(
-      "Missing Cloudflare Turnstile production secret. Set TURNSTILE_SECRET_KEY before enabling form spam protection.",
-    );
+    const msg =
+      "Missing Cloudflare Turnstile production secret. Set TURNSTILE_SECRET_KEY before enabling form spam protection.";
+    console.error("[Turnstile Error]", msg);
+    throw new Error(msg);
+  }
+
+  if (secret === "your-turnstile-secret-key-here") {
+    const msg = "Turnstile secret key is not configured (still using placeholder).";
+    console.error("[Turnstile Error]", msg);
+    throw new Error(msg);
   }
 
   const body = new URLSearchParams({ secret, response: token });
-  
+
   try {
+    console.log("[Turnstile Debug] Sending verification request to Cloudflare...");
     const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
     });
 
+    console.log("[Turnstile Debug] Response status:", response.status);
+
     if (!response.ok) {
-      console.error(`Turnstile verification failed with status ${response.status}`);
+      const errorText = await response.text();
+      console.error(`[Turnstile Error] Status ${response.status}: ${errorText}`);
       throw new Error(
         `Cloudflare verification service error (${response.status}). Please try again.`,
       );
     }
 
     const result = (await response.json()) as { success?: boolean; error_codes?: string[] };
-    
+
+    console.log("[Turnstile Debug] Verification result:", result.success, result.error_codes);
+
     if (!result.success) {
       console.error("Turnstile verification failed:", result.error_codes);
       throw new Error(
@@ -117,7 +133,7 @@ async function verifyTurnstile(token: string) {
     if (error instanceof Error && error.message.includes("verification")) {
       throw error;
     }
-    console.error("Turnstile fetch error:", error);
+    console.error("[Turnstile Fetch Error]", error);
     throw new Error("Security verification service is temporarily unavailable. Please try again.");
   }
 }
